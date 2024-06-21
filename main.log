@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.21)  21 JUN 2024 11:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.21)  21 JUN 2024 12:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/simol/Desktop/UNIMIBThesisTemplate/main
-(c:/Users/simol/Desktop/UNIMIBThesisTemplate/main.tex
+**c:/Users/simol/Desktop/Tesi-universitaria/main
+(c:/Users/simol/Desktop/Tesi-universitaria/main.tex
 LaTeX2e <2024-06-01> patch level 1
 L3 programming layer <2024-05-27>
 (c:/texlive/2024/texmf-dist/tex/latex/base/book.cls
@@ -832,17 +832,17 @@ Overfull \hbox (9.03256pt too wide) in paragraph at lines 15--16
  []
 
 
-Underfull \hbox (badness 2173) in paragraph at lines 20--23
-\OT1/cmr/bx/n/10 Dipartimento di In-for-mat-ica, Sis-temistica e
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 20--23
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
+Overfull \hbox (58.43475pt too wide) in paragraph at lines 13--26
+[]   [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
 
@@ -1062,18 +1062,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26268 strings out of 473600
- 448516 string characters out of 5732737
+ 26265 strings out of 473600
+ 448457 string characters out of 5732737
  1957908 words of memory out of 5000000
- 48661 multiletter control sequences out of 15000+600000
- 563667 words of font info for 55 fonts, out of 8000000 for 9000
+ 48658 multiletter control sequences out of 15000+600000
+ 563061 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,8n,93p,2398b,1931s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,8n,93p,2396b,1931s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{glo:latex} has been referenced but does not exist, replaced by a fixed one
 
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (22 pages, 564715 bytes).
+Output written on main.pdf (22 pages, 565001 bytes).
 PDF statistics:
  475 PDF objects out of 1000 (max. 8388607)
  415 compressed objects within 5 object streams
