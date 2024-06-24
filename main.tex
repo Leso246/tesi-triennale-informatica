@@ -1,4 +1,5 @@
 \documentclass[a4paper, oneside]{book}
+\usepackage[utf8]{inputenc}
 \usepackage{graphicx} % allows inserting graphics
 \usepackage{listings}
 \usepackage{algpseudocode} % allows code snippets
@@ -11,11 +12,11 @@
 \usepackage{acronym} % add acronyms
 \usepackage{subfiles} % support multiple files
 \usepackage{fancyhdr} % more control on headers and footers
+\usepackage[italian]{babel}
 \graphicspath{ {./images/} }
 
 \pagestyle{plain} %oppure none
 % Altrimenti usare fancy header per più controllo: https://www.overleaf.com/learn/latex/Headers_and_footers#Using_the_fancyhdr_package
-
 
 %\usepackage{biblatex} 
 \usepackage[
@@ -25,40 +26,37 @@ sorting=ynt
 ]{biblatex}
 \addbibresource{sample.bib}
 
-
 \makeglossaries
+
+ % Numerazione delle prima pagina con i numeri romani
+\pagenumbering{roman}
 
 \newglossaryentry{latex}{name=latex,
     description={Is a markup language specially suited for 
 scientific documents}}
 
+% Inizio del documento
 \begin{document}
 
-
-%\maketitle
-\subfile{frontispiece}
+% Prima pagina di template
+\subfile{frontespizio}
 
 \tableofcontents
 \listoffigures
 \listoftables
 \printglossary
 \clearpage
-\chapter*{Acronyms}
-\begin{acronym}
-\acro{gcd}{GCD}{Greatest Common Divisor}  
-\end{acronym}
+% \chapter*{Acronyms}
+% \begin{acronym}
+% \acro{gcd}{GCD}{Greatest Common Divisor}  
+% \end{acronym}
 
+% Numera le pagine con i numeri arabi e resetta il counter da questa pagina in poi
+\pagenumbering{arabic} 
+\setcounter{page}{1}
 
-\chapter{Step1: structure of the document}
-
-\section{Introduction}
-
-This is the first section.
-
-Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
-elit. Etiam  lobortisfacilisis sem.  Nullam nec mi et 
-neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
-Donec ullamcorper, felis non sodales...
+% File di introduzione
+\subfile{capitoli/Introduzione.tex}
 
 \section{Second Section}
 
