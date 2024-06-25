@@ -1,0 +1,202 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global/global}
+    \entry{JpaVincenzoRacca}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=8832ab0b5e1e20c323af6985ae54f382}{%
+           family={Racca},
+           familyi={R\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{8832ab0b5e1e20c323af6985ae54f382}
+      \strng{fullhash}{8832ab0b5e1e20c323af6985ae54f382}
+      \strng{fullhashraw}{8832ab0b5e1e20c323af6985ae54f382}
+      \strng{bibnamehash}{8832ab0b5e1e20c323af6985ae54f382}
+      \strng{authorbibnamehash}{8832ab0b5e1e20c323af6985ae54f382}
+      \strng{authornamehash}{8832ab0b5e1e20c323af6985ae54f382}
+      \strng{authorfullhash}{8832ab0b5e1e20c323af6985ae54f382}
+      \strng{authorfullhashraw}{8832ab0b5e1e20c323af6985ae54f382}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 25.06.2024)}
+      \field{title}{Introduzione a JPA e mapping delle relazioni}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.vincenzoracca.com/blog/framework/jpa/jpa-reletions/
+      \endverb
+      \verb{url}
+      \verb https://www.vincenzoracca.com/blog/framework/jpa/jpa-reletions/
+      \endverb
+      \keyw{JPA}
+    \endentry
+    \entry{MavenNexTre}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=00fc6a44015ab86fdbbfcf8072e40ffe}{%
+           family={Gatu},
+           familyi={G\bibinitperiod},
+           given={Andra},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{00fc6a44015ab86fdbbfcf8072e40ffe}
+      \strng{fullhash}{00fc6a44015ab86fdbbfcf8072e40ffe}
+      \strng{fullhashraw}{00fc6a44015ab86fdbbfcf8072e40ffe}
+      \strng{bibnamehash}{00fc6a44015ab86fdbbfcf8072e40ffe}
+      \strng{authorbibnamehash}{00fc6a44015ab86fdbbfcf8072e40ffe}
+      \strng{authornamehash}{00fc6a44015ab86fdbbfcf8072e40ffe}
+      \strng{authorfullhash}{00fc6a44015ab86fdbbfcf8072e40ffe}
+      \strng{authorfullhashraw}{00fc6a44015ab86fdbbfcf8072e40ffe}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 25.06.2024)}
+      \field{title}{Cos’è Maven, a cosa serve e come si usa}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.nextre.it/cose-maven-si-usa/
+      \endverb
+      \verb{url}
+      \verb https://www.nextre.it/cose-maven-si-usa/
+      \endverb
+      \keyw{maven}
+    \endentry
+    \entry{MicrosoftSpringBoot}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=140864078aeca1c7c35b4beb33c53c34}{%
+           family={Microsoft},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{fullhashraw}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{bibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorbibnamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
+      \strng{authorfullhashraw}{140864078aeca1c7c35b4beb33c53c34}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 25.06.2024)}
+      \field{title}{Che cos'è Spring Boot di Java?}
+      \verb{urlraw}
+      \verb https://azure.microsoft.com/it-it/resources/cloud-computing-dictionary/what-is-java-spring-boot
+      \endverb
+      \verb{url}
+      \verb https://azure.microsoft.com/it-it/resources/cloud-computing-dictionary/what-is-java-spring-boot
+      \endverb
+      \keyw{springboot,java}
+    \endentry
+    \entry{JavaWikipedia}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{1}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 24.06.2024)}
+      \field{title}{Java (linguaggio di programmazione)}
+      \verb{urlraw}
+      \verb https://it.wikipedia.org/wiki/Java_(linguaggio_di_programmazione)
+      \endverb
+      \verb{url}
+      \verb https://it.wikipedia.org/wiki/Java_(linguaggio_di_programmazione)
+      \endverb
+      \keyw{java}
+    \endentry
+    \entry{ReactWikipedia}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{2}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 25.06.2024)}
+      \field{title}{React (web framework)}
+      \verb{urlraw}
+      \verb https://it.wikipedia.org/wiki/React_(web_framework)
+      \endverb
+      \verb{url}
+      \verb https://it.wikipedia.org/wiki/React_(web_framework)
+      \endverb
+      \keyw{React}
+    \endentry
+    \entry{TypescriptWikipedia}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 25.06.2024)}
+      \field{title}{TypeScript}
+      \verb{urlraw}
+      \verb https://it.wikipedia.org/wiki/TypeScript
+      \endverb
+      \verb{url}
+      \verb https://it.wikipedia.org/wiki/TypeScript
+      \endverb
+      \keyw{TypeScript}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

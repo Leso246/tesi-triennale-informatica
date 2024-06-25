@@ -3,8 +3,8 @@
 \usepackage{graphicx} % allows inserting graphics
 \usepackage{listings}
 \usepackage{algpseudocode} % allows code snippets
-\usepackage{algorithm}
-\usepackage{hyperref} % allows
+\usepackage{algorithm} 
+\usepackage{hyperref} % aggiunge rigerimenti ipertestuali
 \usepackage{subcaption} 
 \usepackage[export]{adjustbox} 
 \usepackage{wrapfig} % allows warped figures
@@ -12,21 +12,21 @@
 \usepackage{acronym} % add acronyms
 \usepackage{subfiles} % support multiple files
 \usepackage{fancyhdr} % more control on headers and footers
-\usepackage[italian]{babel}
+\usepackage[italian]{babel} % aggiunge la lingua italiana
 \graphicspath{ {./images/} }
 
 \pagestyle{plain} %oppure none
 % Altrimenti usare fancy header per più controllo: https://www.overleaf.com/learn/latex/Headers_and_footers#Using_the_fancyhdr_package
 
-%\usepackage{biblatex} 
+% Per generare la bibliografia
 \usepackage[
 backend=biber,
 style=ieee,
 sorting=ynt
 ]{biblatex}
-\addbibresource{sample.bib}
+\addbibresource{bibliografia.bib}
 
-\makeglossaries
+\makeglossaries 
 
  % Numerazione delle prima pagina con i numeri romani
 \pagenumbering{roman}
@@ -34,7 +34,7 @@ sorting=ynt
 \newglossaryentry{latex}{name=latex,
     description={Is a markup language specially suited for 
 scientific documents}}
-
+ 
 % Inizio del documento
 \begin{document}
 
@@ -54,33 +54,13 @@ scientific documents}}
 % Numera le pagine con i numeri arabi e resetta il counter da questa pagina in poi
 \pagenumbering{arabic} 
 \setcounter{page}{1}
-
+ 
 % File di introduzione
-\subfile{capitoli/Introduzione.tex}
+\subfile{capitoli/introduzione.tex}
 
-\section{Second Section}
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
-sollicitudin.  Praesent imperdiet mi necante...
-
-\subsection{First Subsection}
-Praesent imperdietmi nec ante. Donec ullamcorper, felis non sodales...
-
-\subsubsection{First subsubsection}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem.
-\paragraph{First paragraph}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem.
-\subparagraph{First subparagraph}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem.
-
-\section*{Unnumbered Section}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
-Etiam lobortis facilisissem...
-
+% Capitolo 1 - Tecnlogie Utilizzate
+\subfile{capitoli/capitolo1.tex}
+ 
 \chapter{Step2: Text style}
 \section{Bold}
 Example of bold \textbf{text}.
@@ -310,11 +290,9 @@ libero ut metus. Pellentesque placerat.
 Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer 
 adipiscing elit. Duis fringilla tristique neque. Sed interdum
 Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+ 
 \subsection{Wrapped Tables}
-
-Ciao! \cite{knuthwebsite}. Questo è il sito di Knuth.
-
+ 
 Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 %------------------------------------------
 \begin{wraptable}{r}{5.5cm}
@@ -330,7 +308,7 @@ Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incid
 
 \chapter{Additional concepts}
 
-\section{Terms}
+\section{Terms} 
 
 The \Gls{latex} typesetting markup language is specially suitable 
 for documents that include maths. Formula are rendered 
@@ -348,15 +326,9 @@ process is similar to that used for the lcm.
 
 \section{Multiple file 1}
 
-\subfile{multiple-files/file-two}
-
-\chapter{Citations}
-
-Let's cite! Einstein's journal paper \cite{einstein} and Dirac's
-book \cite{dirac} are physics-related items.
-
+% Stampa la bibliografia
 \printbibliography
-
+ 
 \appendix
 \chapter{Appendix}
 Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -364,8 +336,7 @@ Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incid
 \chapter{Appendix-B}
 Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-
-
+% Fine del documento
 \end{document}
 
 

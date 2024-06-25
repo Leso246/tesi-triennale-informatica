@@ -1,0 +1,115 @@
+\chapter{Tecnologie utilizzate}
+Nel corso dello sviluppo del progetto sono state impiegate diverse tecnologie 
+moderne, per garantire un'applicazione robusta, scalabile e facile da mantenere. 
+La parte del progetto a me assegnata ha richiesto uno sviluppo full-stack, 
+coinvolgendo sia il frontend che il backend.
+
+\section{Frontend} 
+Il frontend rappresenta la parte dell'applicazione con cui l'utente interagisce direttamente. 
+È stato sviluppato utilizzando \textbf{React} insieme a \textbf{TypeScript}, 
+con l'obiettivo di garantire una esperienza utente fluida e intuitiva.
+\\
+Per gestire i pacchetti e le dipendenze, è stato utilizzato \textbf{npm} (Node Package Manager).
+\\
+Inoltre, il design dell'interfaccia utente è stato standardizzato 
+utilizzando il \textbf{MUI Theme} di Material-UI.
+
+\begin{itemize}
+    \item \textbf{React}: React è una libreria JavaScript open source, sviluppata da Facebook, 
+    per la costruzione di interfacce utente. Utilizzando un approccio basato sui componenti, 
+    React consente di creare interfacce utente modulari e riutilizzabili. La sua capacità di 
+    aggiornare e mostrare efficientemente solo i componenti necessari in risposta ai cambiamenti 
+    rende React particolarmente adatto per lo sviluppo di applicazioni interattive e 
+    ad alte prestazioni. Inoltre, React permette di gestire lo stato delle applicazioni in modo 
+    prevedibile e scalabile, facilitando lo sviluppo di applicazioni complesse. 
+    \cite{ReactWikipedia}
+ 
+    \item \textbf{TypeScript}: TypeScript è un linguaggio di programmazione open source sviluppato 
+    da Microsoft, che estende JavaScript aggiungendo tipi statici. 
+    L'adozione di TypeScript permette di ridurre significativamente gli errori
+    durante lo sviluppo, grazie al controllo statico dei tipi che individua potenziali
+    problemi prima ancora dell'esecuzione del codice. Inoltre, TypeScript facilita la manutenzione 
+    del codice in progetti di grandi dimensioni, migliorando la leggibilità e la documentazione attraverso
+    la tipizzazione esplicita. \cite{TypescriptWikipedia}
+ 
+    \item \textbf{MUI Theme (Material-UI)}: Material-UI è una libreria di componenti React 
+    che implementa le linee guida del \textbf{Material Design} di Google. Utilizzare 
+    Material-UI permette di sviluppare interfacce utente coerenti e professionali 
+    senza dover creare e stilizzare i componenti da zero. La libreria offre una vasta 
+    gamma di componenti pre-stilizzati e altamente personalizzabili, che facilitano la 
+    creazione di un design uniforme e accattivante. Inoltre, Material-UI supporta nativamente 
+    la creazione di temi, consentendo di personalizzare l'aspetto dell'applicazione in modo centralizzato.
+
+    \item \textbf{npm}: Node Package Manager è il gestore di pacchetti predefinito 
+    per l'ecosistema JavaScript, utilizzato per installare, condividere e 
+    gestire le dipendenze necessarie per lo sviluppo delle applicazioni. 
+    Npm facilita l'integrazione di librerie e strumenti di terze parti, 
+    permettendo agli sviluppatori di accedere rapidamente a un vasto repository 
+    di pacchetti open source. Questo strumento è fondamentale per mantenere 
+    aggiornate le dipendenze del progetto e per gestire le versioni delle librerie utilizzate.
+
+\end{itemize}
+
+\section{Backend} 
+Il backend rappresenta la parte dell'applicazione che gestisce la logica di business, 
+l'elaborazione dei dati e la comunicazione con il database. 
+È responsabile del funzionamento lato server dell'applicazione, 
+elaborando le richieste degli utenti e restituendo le risposte appropriate al frontend.
+\\
+Il backend dell'applicazione è stato sviluppato utilizzando \textbf{Java} con il framework 
+\textbf{Spring Boot}. Inoltre, viene utilizzato \textbf{Maven}
+come strumento di gestione delle dipendenze. 
+\\
+Per la gestione della persistenza 
+dei dati è stato utilizzato \textbf{Java Persistence API (JPA)}, che permette di interfacciarsi 
+con il database in modo efficiente e strutturato. Il database utilizzato si basa su \textbf{PostgreSQL 14}.
+
+\begin{itemize}
+    \item \textbf{Java}: Java è un linguaggio di programmazione ad alto livello, 
+    orientato agli oggetti e a tipizzazione statica, sviluppato da 
+    Sun Microsystems (ora di proprietà di Oracle). È noto per la sua robustezza, 
+    sicurezza e portabilità, grazie alla Java Virtual Machine (JVM) che permette di 
+    eseguire il codice Java su qualsiasi piattaforma. Java è ampiamente utilizzato 
+    nello sviluppo di applicazioni enterprise, sistemi embedded, applicazioni mobili e web. 
+    La sua vasta ecosistema di librerie e strumenti lo rende una scelta ideale per lo sviluppo backend.
+    \cite{JavaWikipedia}
+ 
+    \item \textbf{Spring Boot}: Spring Boot è un framework open source 
+    per lo sviluppo di applicazioni Java basato su Spring, che semplifica 
+    il processo di creazione di app web e microservizi. 
+    Spring Boot offre una configurazione automatica dei componenti, 
+    riducendo significativamente il tempo necessario per avviare un progetto. Fornisce anche 
+    una serie di funzionalità integrate, come la gestione della sicurezza e il logging 
+    che facilitano lo sviluppo e la manutenzione delle applicazioni. \cite{MicrosoftSpringBoot}
+
+    \item \textbf{Maven}: Maven è uno strumento di build automation e gestione 
+    delle dipendenze per progetti Java sviluppato dalla Apache Software Foundation. 
+    Utilizzando un modello basato su pom.xml  (Project Object Model), 
+    Maven facilita la gestione del ciclo di vita del progetto, 
+    dall'inizializzazione alla distribuzione. Consente di integrare facilmente le librerie 
+    di terze parti e di gestire le versioni delle dipendenze, migliorando la coerenza e la 
+    riproducibilità del build.
+    \cite{MavenNexTre}
+
+    \item \textbf{Java Persistence API (JPA)}: La Java Persistence API (JPA) è una specifica standard 
+    per la gestione della persistenza dei dati nelle applicazioni Java. JPA offre un modo standardizzato
+    per mappare le classi Java agli oggetti del database, permettendo di eseguire operazioni CRUD 
+    (Create, Read, Update, Delete) in modo semplice e intuitivo.
+    \\
+    Inoltre fornisce un linguaggio per effettuare query SQL, chiamato \textbf{JPQL} 
+    (Java Persistence Query Language), che è indipendente dalla DBMS utilizzato.
+    \\
+    Utilizzando JPA, gli sviluppatori possono concentrarsi sulla logica di business senza 
+    doversi preoccupare dei dettagli specifici dell'interazione con il database, 
+    migliorando la produttività e la manutenibilità del codice.
+    \cite{JpaVincenzoRacca}
+
+    \item \textbf{PostgreSQL 14}: PostgreSQL è un sistema di gestione di database relazionale open source, 
+    noto per la sua affidabilità, scalabilità e le sue avanzate funzionalità. 
+    La versione 14 di PostgreSQL introduce miglioramenti significativi in termini 
+    di prestazioni, gestione della concorrenza e sicurezza. PostgreSQL supporta una vasta 
+    gamma di tipi di dati e funzioni avanzate, come le transazioni ACID, le viste materializzate 
+    e i trigger, rendendolo una scelta eccellente per applicazioni che richiedono un'elevata 
+    integrità dei dati e un'elaborazione complessa.
+
+\end{itemize}
