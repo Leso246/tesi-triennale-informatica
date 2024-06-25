@@ -81,6 +81,34 @@
       \endverb
       \keyw{maven}
     \endentry
+    \entry{PostgreSQL}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=696024c5649be95fea16800c629f82da}{%
+           family={Geekandjob},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{696024c5649be95fea16800c629f82da}
+      \strng{fullhash}{696024c5649be95fea16800c629f82da}
+      \strng{fullhashraw}{696024c5649be95fea16800c629f82da}
+      \strng{bibnamehash}{696024c5649be95fea16800c629f82da}
+      \strng{authorbibnamehash}{696024c5649be95fea16800c629f82da}
+      \strng{authornamehash}{696024c5649be95fea16800c629f82da}
+      \strng{authorfullhash}{696024c5649be95fea16800c629f82da}
+      \strng{authorfullhashraw}{696024c5649be95fea16800c629f82da}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 25.06.2024)}
+      \field{title}{Cos'è PostgreSQL}
+      \verb{urlraw}
+      \verb https://www.geekandjob.com/wiki/postgresql
+      \endverb
+      \verb{url}
+      \verb https://www.geekandjob.com/wiki/postgresql
+      \endverb
+      \keyw{PostgreSQL}
+    \endentry
     \entry{MicrosoftSpringBoot}{online}{}{}
       \name{author}{1}{}{%
         {{hash=140864078aeca1c7c35b4beb33c53c34}{%
