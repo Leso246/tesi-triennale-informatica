@@ -1,14 +1,84 @@
-\chapter{Approccio proposto}
- \section{Problema e Obiettivo}
- Il problema principale affrontato riguarda l'ottimizzazione dell'efficienza 
- aziendale nella gestione dei meeting per i colloqui di lavoro, fornendo uno 
- strumento adeguato e completo di tutte le funzionalità necessarie. 
- L'obiettivo principale è migliorare l'esperienza dei recruiter, che spesso si 
- potrebbero trovare a gestire un elevato numero di meeting. Si intende, inoltre, facilitare 
- la gestione e l'accesso ai meeting per gli utenti, eliminando la necessità per i 
- candidati di segnarsi manualmente gli appuntamenti e offrendo loro uno strumento 
- che ricordi in modo comodo e automatico tutti i colloqui programmati.
+\chapter{Approccio Proposto}
+\section{Problema e Obiettivo}
+Il problema principale affrontato riguarda:
 
- \section{Metodologia}
- L'approccio proposto di seguito è stato utilizzato per poter 
+\begin{itemize}
+   \item Per le \textbf{aziende}: ottimizzazione dell'efficienza nella gestione dei meeting per i colloqui di lavoro, 
+   fornendo uno strumento adeguato e completo di tutte le funzionalità necessarie. 
+   L'obiettivo principale è migliorare l'esperienza dei recruiter, che potrebbero trovarsi a gestire un elevato numero di meeting.
+
+    \item Per gli \textbf{utenti}: eliminare la necessità per i candidati di segnare manualmente gli appuntamenti, 
+    offrendo loro uno strumento che ricordi in modo comodo e automatico tutti i colloqui programmati, facilitandone l'accesso.
+ \end{itemize}
+
+   \subsection{Caratteristiche dei Meeting}
+   \label{sec:caratteristiche_meeting}
+   Un ulteriore obiettivo riguarda le proprietà che devono caratterizzare un meeting:
+
+      \begin{itemize}
+         \item Non è richiesto avere un account per partecipare al meeting, ma sarà sufficiente inserire un nome a propria scelta al momento dell'accesso.
+         
+         \item Nessuno può accedere al meeting prima di un quarto d'ora rispetto all'orario di inizio prestabilito o dopo che sia trascorso l'orario di fine.
+      \end{itemize}
+
+\clearpage
+
+\section{Metodologia}
+Di seguito sono riportati i passi seguiti per la realizzazione di questo progetto.
+Si vuole far notare che RisUma è un'idea del direttore aziendale, 
+e pertanto non vi è un cliente con cui confrontarsi. Inoltre, poiché non sono state disponibili direttive scritte ma solo 
+alcune indicazioni orali, tutte le scelte sono state prese a mia completa discrezione.
+
+% Lista numerata
+\begin{enumerate}
+
+   \item \textbf{Servizio}: il primo passo è stato scegliere quale servizio di terze parti utilizzare per le chiamate online. 
+   Si cercava un servizio che: 
+   
+      \begin{enumerate}
+         \item avesse le \hyperref[sec:caratteristiche_meeting]{caratteristiche richieste}
+         \item si integrasse bene con il progetto (API disponibili, compatibilità con le tecnologie utilizzate...)
+         \item fosse facilmente usabile anche dagli utenti meno esperti
+      \end{enumerate}
+   
+   Per tali motivi sono state prese in considerazione le piattaforme più note, quali Cisco Webex, Google Meet e Zoom.
+   
+   \item \textbf{Interfaccia utente}: è stato scelto il design della pagina frontend. 
+   Basandosi anche sulle \hyperref[sec:euristiche_nielsen]{10 euristiche} di Jakob Nielsen, si sono perseguiti i seguenti obiettivi:
+
+   % Lista  numerata interfaccia utente
+   \begin{enumerate}
+      \item Adattare il sistema al mondo reale. (Euristica \hyperref[sec:euristiche_nielsen2]{2})
+      \item La pagina doveva essere facile da navigare, riducendo al minimo il carico cognitivo per l'utente. 
+      (Euristica \hyperref[sec:euristiche_nielsen6]{6})
+      \item  Optare per uno stile minimalista e intuitivo. (Euristica \hyperref[sec:euristiche_nielsen7]{7})
+      \item Implementare funzionalità di feedback per guidare l'utente in caso di errori o problemi durante l'utilizzo della pagina.
+      (Euristiche \hyperref[sec:euristiche_nielsen8]{8} e \hyperref[sec:euristiche_nielsen9]{9})
+   \end{enumerate}
+
+   \item \textbf{Integrazione delle API}: sono state integrate le API per consentire le operazioni CRUD sui meeting, 
+   sviluppando contemporaneamente le parti di frontend e backend secondo il seguente ordine:
+
+      \begin{enumerate}
+
+         \item \textbf{Creazione}: implementazione della funzionalità per creare nuovi meeting, 
+         gestendo i parametri necessari come data, ora e invitati.
+
+         \item \textbf{Recupero}: realizzazione della logica per recuperare e visualizzare i meeting di un utente.
+
+         \item \textbf{Modifica}: implementazione della possibilità dei modificare i parametri dei meeting già esistenti.
+
+         \item \textbf{Eliminazione}: implementazione della funzionalità per annullare meeting programmati.
+      \end{enumerate}
+
+   Questa parte è stata cruciale nel corso della mia esperienza di stage
+   in quanto ha costituito il nucleo essenziale della pagina che ho progettato e integrato.
+
+   \item \textbf{Test}: Il sistema è stato sottoposto da parte mia e di alcuni colleghi a dei test per garantire che tutte 
+   le funzionalità operassero correttamente.
+
+   \item \textbf{Deploy}:  È stato eseguito un deploy su un server per testare le prestazioni in un ambiente
+   più realistico rispetto a quello locale.
+\end{enumerate}
+ 
 

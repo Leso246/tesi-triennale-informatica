@@ -109,6 +109,29 @@
       \endverb
       \keyw{PostgreSQL}
     \endentry
+    \entry{AppuntiEuristicheNielsen}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=7ec7135e03595bf516dc6faf9c5b4bc6}{%
+           family={Lesinigo},
+           familyi={L\bibinitperiod},
+           given={Simone},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ec7135e03595bf516dc6faf9c5b4bc6}
+      \strng{fullhash}{7ec7135e03595bf516dc6faf9c5b4bc6}
+      \strng{fullhashraw}{7ec7135e03595bf516dc6faf9c5b4bc6}
+      \strng{bibnamehash}{7ec7135e03595bf516dc6faf9c5b4bc6}
+      \strng{authorbibnamehash}{7ec7135e03595bf516dc6faf9c5b4bc6}
+      \strng{authornamehash}{7ec7135e03595bf516dc6faf9c5b4bc6}
+      \strng{authorfullhash}{7ec7135e03595bf516dc6faf9c5b4bc6}
+      \strng{authorfullhashraw}{7ec7135e03595bf516dc6faf9c5b4bc6}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Università degli Studi di Milano-Bicocca, Docente: Cabitza Federico Antonio Niccolò Amedeo, Anno Scolastico 2023-2024}
+      \field{title}{Appunti del corso di Interazione Uomo-Macchina}
+    \endentry
     \entry{MicrosoftSpringBoot}{online}{}{}
       \name{author}{1}{}{%
         {{hash=140864078aeca1c7c35b4beb33c53c34}{%
