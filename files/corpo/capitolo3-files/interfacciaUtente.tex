@@ -1,14 +1,68 @@
 \section{Interfaccia Utente}
-Per quanto riguarda l'interfaccia utente, si voleva avere una visualizzazione chiara
-e semplice dei propri meeting in programma, per questo è stato scelto un calendario.
-\\
-Più precisamente si è deciso di utilizzare \textit{FullCalendar} \cite{FullCalendarSite},
+Per quanto riguarda l'interfaccia utente, l'obiettivo era fornire una visualizzazione 
+chiara e semplice dei meeting programmati. Per questo motivo, è stato scelto un calendario
+come elemento principale dell'interfaccia.
+\\\\
+In particolare, si è deciso di utilizzare \textit{FullCalendar} \cite{FullCalendarSite},
 una famosa libreria Javascript open source che si integra perfettamente con React.
-
+\\\\
+Grazie al \textbf{MUI Theme}, l'utente può personalizzare a suo piacimento i colori 
+principali del sito attraverso una comoda interfaccia laterale:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../screenshot/visualizzazione claendario/tema scuro calendario.png}
-    \caption{Example image}
-    \label{img:visualizzazione_calendario_interfaccia_utente}
+    % Figura impostazioni tema - chiaro
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{ThemeSettings/LightTheme.png}
+        \caption{Tema chiaro}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    % Figura impostazioni tema - scuro
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{ThemeSettings/DarkTheme.png}
+        \caption{Tema scuro}
+    \end{minipage}
 \end{figure}
-
+\noindent Un esempio di visualizzazione della pagina utilizzando entrambi i temi:
+% Visualizzazione calendario mensile tema chiaro
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{VisualizzazioneCalendario/LightTheme.png}
+    \caption{Visualizzazione Calendario - tema chiaro}
+\end{figure}
+% Visualizzazione calendario mensile tema scuro
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{VisualizzazioneCalendario/DarkTheme.png}
+    \caption{Visualizzazione Calendario - tema scuro}
+\end{figure}
+\noindent  Nel caso siano presenti più eventi in un giorno nella visualizzazione mensile 
+del calendario, è possibile utilizzare un pratico popup per avere una visione migliore:
+\begin{figure}[H]
+    \centering
+    % Figura impostazioni tema - chiaro
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.5\textwidth]{VisualizzazioneCalendario/+Meet.png}
+        \caption{+ altri meet}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    % Figura impostazioni tema - scuro
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{VisualizzazioneCalendario/popup+MeetDark.png}
+        \caption{popup + meet}
+    \end{minipage}
+\end{figure}
+\noindent È anche disponibile una visualizzazione settimanale e giornaliera:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{VisualizzazioneCalendario/VisualizzazioneSettimana.png}
+    \caption{Visualizzazione Settimanale - tema scuro}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{VisualizzazioneCalendario/VisualizzazioneGiorno.png}
+    \caption{Visualizzazione Giornaliera - tema scuro}
+\end{figure}
