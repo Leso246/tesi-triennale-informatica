@@ -44,7 +44,7 @@ alcune indicazioni orali, tutte le scelte sono state prese a mia completa discre
    Per tali motivi sono state prese in considerazione le piattaforme più note, quali Cisco Webex, Google Meet e Zoom.
    
    \item \textbf{Interfaccia utente}: è stato scelto il design della pagina frontend. 
-   Basandosi anche sulle \hyperref[sec:euristiche_nielsen]{10 euristiche} di Jakob Nielsen, si sono perseguiti i seguenti obiettivi:
+   Basandosi anche sulle \hyperref[sec:euristiche_nielsen]{10 euristiche di Jakob Nielsen}, si sono perseguiti i seguenti obiettivi:
 
    % Lista  numerata interfaccia utente
    \begin{enumerate}
@@ -55,6 +55,9 @@ alcune indicazioni orali, tutte le scelte sono state prese a mia completa discre
       \item Implementare funzionalità di feedback per guidare l'utente in caso di errori o problemi durante l'utilizzo della pagina.
       (Euristiche \hyperref[sec:euristiche_nielsen8]{8} e \hyperref[sec:euristiche_nielsen9]{9})
    \end{enumerate}
+
+   \item \textbf{Creazione della tabella a database}: è stata progettata e creata la tabella nel database aziendale,
+   includendo tutte le colonne necessarie,  al fine di garantire il corretto funzionamento della pagina web.
 
    \item \textbf{Integrazione delle API}: sono state integrate le API per consentire le operazioni CRUD sui meeting, 
    sviluppando contemporaneamente le parti di frontend e backend secondo il seguente ordine:
@@ -80,5 +83,17 @@ alcune indicazioni orali, tutte le scelte sono state prese a mia completa discre
    \item \textbf{Deploy}:  È stato eseguito un deploy su un server per testare le prestazioni in un ambiente
    più realistico rispetto a quello locale.
 \end{enumerate}
- 
 
+\section{Possibili sfide}
+Nel corso dello sviluppo del progetto sono emerse due principali sfide:
+\begin{enumerate}
+
+   \item \textbf{Consistenza tra i database}: assicurare la consistenza tra il database aziendale e quello del servizio 
+   di terze parti durante le operazioni di creazione, modifica o eliminazione di un meeting. Una eventuale inconsistenza 
+   porterebbe a gravi problemi legati allo svolgimento dei meeting, compromettendo l'affidabilità e le funzionalità 
+   del sistema.
+
+   \item \textbf{Creazione dell'interfaccia utente}: la realizzazione di un'interfaccia utente piacevole e funzionale
+   ha rappresentato un'altra grande sfida. Nel corso dello sviluppo è stata più volte modificata sulla base dei feedback 
+   dei colleghi.
+\end{enumerate} 
