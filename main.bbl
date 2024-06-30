@@ -224,6 +224,32 @@
       \endverb
       \keyw{PostgreSQL}
     \endentry
+    \entry{WebexSandboxAccount}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=59b3b9d9f73544da1bf3ea1b63e7802f}{%
+           family={Webex},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{59b3b9d9f73544da1bf3ea1b63e7802f}
+      \strng{fullhash}{59b3b9d9f73544da1bf3ea1b63e7802f}
+      \strng{fullhashraw}{59b3b9d9f73544da1bf3ea1b63e7802f}
+      \strng{bibnamehash}{59b3b9d9f73544da1bf3ea1b63e7802f}
+      \strng{authorbibnamehash}{59b3b9d9f73544da1bf3ea1b63e7802f}
+      \strng{authornamehash}{59b3b9d9f73544da1bf3ea1b63e7802f}
+      \strng{authorfullhash}{59b3b9d9f73544da1bf3ea1b63e7802f}
+      \strng{authorfullhashraw}{59b3b9d9f73544da1bf3ea1b63e7802f}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Developer Sandbox}
+      \verb{urlraw}
+      \verb https://developer.webex.com/docs/developer-sandbox-guide
+      \endverb
+      \verb{url}
+      \verb https://developer.webex.com/docs/developer-sandbox-guide
+      \endverb
+    \endentry
     \entry{FullCalendarSite}{online}{}{}
       \name{author}{1}{}{%
         {{hash=c07a98e489e58c1243713e7147a7b96e}{%
@@ -240,8 +266,8 @@
       \strng{authornamehash}{c07a98e489e58c1243713e7147a7b96e}
       \strng{authorfullhash}{c07a98e489e58c1243713e7147a7b96e}
       \strng{authorfullhashraw}{c07a98e489e58c1243713e7147a7b96e}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{FullCalendar}
@@ -268,8 +294,8 @@
       \strng{authornamehash}{7ec7135e03595bf516dc6faf9c5b4bc6}
       \strng{authorfullhash}{7ec7135e03595bf516dc6faf9c5b4bc6}
       \strng{authorfullhashraw}{7ec7135e03595bf516dc6faf9c5b4bc6}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Università degli Studi di Milano-Bicocca, Docente: Cabitza Federico Antonio Niccolò Amedeo, Anno Scolastico 2023-2024}

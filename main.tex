@@ -2,7 +2,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{graphicx} % allows inserting graphics
-\usepackage{listings}
 \usepackage{algpseudocode} % allows code snippets
 \usepackage{algorithm} 
 \usepackage{hyperref} % aggiunge rigerimenti ipertestuali
@@ -13,9 +12,35 @@
 \usepackage{acronym} % add acronyms
 \usepackage{subfiles} % support multiple files
 \usepackage{fancyhdr} % more control on headers and footers
-\usepackage[italian]{babel} % aggiunge la lingua italiana
+\usepackage[italian]{babel} % mette la lingua italiana
 \graphicspath{ {./screenshot/} }
- 
+\usepackage{listings}
+\usepackage{xcolor}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+% Definisce i colori per i json
+\lstdefinelanguage{json}{
+    basicstyle=\ttfamily\scriptsize,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
 \pagestyle{plain} %oppure none
 % Altrimenti usare fancy header per più controllo: 
 %https://www.overleaf.com/learn/latex/Headers_and_footers#Using_the_fancyhdr_package
@@ -337,10 +362,11 @@ scientific documents}}
 
 % Aggiunge la bibliografia
 \printbibliography
+\addcontentsline{toc}{chapter}{\bibname}
 
 % Aggiunge l'appendice
 \appendix
 \subfile{files/appendice.tex}
- 
+
 % Fine del documento
 \end{document}

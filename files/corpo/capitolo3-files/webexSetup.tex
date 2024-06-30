@@ -1,0 +1,47 @@
+\section{Configurazione di Webex}
+Per utilizzare i servizi offerti da Cisco Webex, è necessario compiere una serie di passaggi
+preliminari per ottenere un \textbf{access token}, che verrà utilizzato per autenticare tutte le chiamate alle API.
+
+\begin{enumerate}
+
+    \item \textbf{Creazione di un account}: il primo passo consiste nel creare
+    un account sul sito \href{https://developer.webex.com/}{Webex for Developers}, che permette 
+    l'accesso agli strumenti necessari per lo sviluppo.
+    
+    \item \textbf{Creazione dell'integrazione}: successivamente si deve creare l'integrazione per 
+    l'applicazione sul proprio account. Durante questo processo sono stati specificati:
+        \begin{itemize}
+            \item Il \textbf{nome dell'applicazione}
+            \item Una \textbf{descrizione dell'applicazione}
+            \item Un'\textbf{icona rappresentativa}
+            \item Gli \textbf{scopes}: di fondamentale importanza sono gli scopes. Questi definiscono tutte le operazioni
+            che il nostro account potrà andare ad eseguire  quando si effettuano chiamate alle API. È necessario
+            selezionare tutti gli scopes necessari alle finalità del progetto, con la possibilità di abilitarli 
+            o disabilitarli in qualsiasi momento.
+        \end{itemize}
+ 
+    \item \textbf{Richiesta di un account sandbox}: per effettuare test senza limitazioni durante lo sviluppo,
+    è necessario richiedere un account Sandbox tramite il proprio account creato in precedenza. Una volta ottenute
+    le credenziali, si può usufruire di questo account speciale per accedere come amministratore di un'organizzazione 
+    e gestire tutti i meeting e le relative impostazioni attraverso una comoda interfaccia, 
+    \href{https://admin.webex.com/login}{Webex Control Hub}.
+    \cite{WebexSandboxAccount}
+
+    \item \textbf{Recupero dell'access token}: l'ultimo passaggio è stato ottenere l'access token 
+    necessario per autenticare le chiamate alle API.
+    Bisogna effettuare una richiesta POST all'API
+    \texttt{https://webexapis.com/v1/access\_token} con il seguente body:
+    \begin{lstlisting}[language=json,firstnumber=1]
+{
+    "grant_type": "authorization_code",
+    "client_id": "1234567890abcdef123456",
+    "client_secret": "abcdef1234567890abcdef1234567890",
+    "code":"12345678abcdef12345678abcdef"
+}
+    \end{lstlisting}
+
+    I valori di \texttt{client\_id}, \texttt{client\_secret}, e \texttt{code} sono stati reperiti dalla pagina di integrazione 
+    dell'applicazione sul proprio account Webex for Developers.
+    Se tutti i dati passati sono corretti, l'access token viene restituito come risposta.
+ 
+\end{enumerate}
