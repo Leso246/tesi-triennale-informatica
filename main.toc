@@ -14,5 +14,9 @@
 \contentsline {section}{\numberline {3.2}Scelta del servizio}{8}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Configurazione di Webex}{9}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Interfaccia Utente}{10}{section.3.4}%
-\contentsline {chapter}{Bibliografia}{13}{chapter*.10}%
-\contentsline {chapter}{\numberline {A}Euristiche di Nielsen}{14}{appendix.Alph1}%
+\contentsline {section}{\numberline {3.5}Creazione della tabella a database}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Creazione dei meeting}{14}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Frontend}{14}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Backend}{14}{subsection.3.6.2}%
+\contentsline {chapter}{Bibliografia}{15}{chapter*.11}%
+\contentsline {chapter}{\numberline {A}Euristiche di Nielsen}{16}{appendix.Alph1}%

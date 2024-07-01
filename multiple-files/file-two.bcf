@@ -2376,17 +2376,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">files/bibliografia.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">ReactWikipedia</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">TypescriptWikipedia</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">JavaWikipedia</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">MicrosoftSpringBoot</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">MavenNexTre</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">JpaVincenzoRacca</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">PostgreSQL</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">WebexSandboxAccount</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">FullCalendarSite</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">FullCalendarSite</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">AppuntiEuristicheNielsen</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
@@ -2398,14 +2387,4 @@
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
-  <bcf:datalist section="0"
-                name="none/global//global/global/global"
-                type="entry"
-                sortingtemplatename="none"
-                sortingnamekeytemplatename="global"
-                labelprefix=""
-                uniquenametemplatename="global"
-                labelalphanametemplatename="global"
-                namehashtemplatename="global">
-  </bcf:datalist>
 </bcf:controlfile>

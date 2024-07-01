@@ -1,0 +1,124 @@
+\section{Creazione della tabella a database}
+Per garantire un'efficace gestione dei meeting, è stato necessario creare una tabella dedicata nel database aziendale.
+Questa tabella è stata progettata per memorizzare tutte le informazioni rilevanti relative ai meeting, le quali
+saranno utilizzate da \textit{FullCalendar} \cite{FullCalendarSite} per permettere la corretta visualizzazione e gestione 
+da parte degli utenti.
+\\
+\\
+Per collegare un evento nel database aziendale con il corrispondente meeting su Webex, viene memorizzato l'ID 
+univoco assegnato da Webex al momento della creazione del meeting. Inoltre, per ragioni di efficienza e praticità, 
+viene salvato anche il link del meeting, generato anch'esso al momento della creazione.
+\\
+\\
+Viene riportata di seguito la query con cui è stata generata la tabella:
+\begin{lstlisting}[language=SQL, frame=lines]
+CREATE TABLE meet (
+    id BIGSERIAL PRIMARY KEY,
+    data_inizio TIMESTAMP NOT NULL,
+    data_fine TIMESTAMP NOT NULL,
+    id_utente BIGINT NOT NULL,
+    id_azienda BIGINT NOT NULL,
+    link VARCHAR(200) NOT NULL,
+    webex_id VARCHAR(200) NOT NULL,
+    FOREIGN KEY (id_utente) REFERENCES utente(id_utente),
+    FOREIGN KEY (id_azienda) REFERENCES aziende(id_azienda)
+);
+\end{lstlisting}
+\vspace{20pt}
+\begin{table}[ht]
+    \centering
+    \begin{adjustbox}{width=13cm, center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \rowcolor{gray!30}
+        id & data\_inizio & data\_fine & id\_utente & id\_azienda & link & webex\_id \\
+        \hline
+        50 & 2024-06-28 15:00:00 & 2024-06-28 16:00:00 & 73 & 51 & webex.com\//meet\//ex1 & 93d7d864bd9b4 \\
+        \hline
+        51 & 2024-07-13 14:30:00 & 2024-07-13 16:30:00 & 34 & 62 & webex.com\//meet\//ex2 & 34421188b307b9\\
+        \hline
+    \end{tabular}
+    \end{adjustbox}
+    \caption{Tabella a database di esempio}
+\end{table}
+\textit{Nota: i timestamp a database vengono automaticamente visualizzati in un formato leggibile da un umano.}
+\\
+\\
+\\
+Segue una descrizione dettagliata delle colonne:
+\begin{enumerate}
+    \item \textbf{id}:
+        \begin{itemize}
+            \item \textbf{Tipo}: BIGSERIAL
+            \item \textbf{Descrizione}: chiave primaria della tabella. È un identificatore univoco generato automaticamente per ogni record.
+        \end{itemize}
+    \item \textbf{data_inizio}:
+        \begin{itemize}
+            \item \textbf{Tipo}: TIMESTAMP
+            \item \textbf{Descrizione}: indica la data e l'ora di inizio del meeting. Questo campo non può essere nullo.
+        \end{itemize}
+    \item \textbf{data_fine}:
+        \begin{itemize}
+            \item \textbf{Tipo}: TIMESTAMP
+            \item \textbf{Descrizione}: indica la data e l'ora di fine del meeting. Questo campo non può essere nullo.
+        \end{itemize}
+    \item \textbf{id_utente}:
+        \begin{itemize}
+            \item \textbf{Tipo}: BIGINT
+            \item \textbf{Descrizione}: identificatore dell'utente associato al meeting. 
+            Questo campo è una chiave esterna che fa riferimento alla colonna \texttt{id_utente} della tabella \texttt{utente}. 
+            Non può essere nullo.
+        \end{itemize}
+    \item \textbf{id_azienda}:
+        \begin{itemize}
+            \item \textbf{Tipo}: BIGINT
+            \item \textbf{Descrizione}: identificatore dell'azienda associato al meeting.  \\
+            Questo campo è una chiave esterna che fa riferimento alla colonna \texttt{id_azienda} della tabella \texttt{azienda}. 
+            Non può essere nullo.
+        \end{itemize}
+    \item \textbf{link}:
+        \begin{itemize}
+            \item \textbf{Tipo}: VARCHAR(200)
+            \item \textbf{Descrizione}: contiene il link univoco del meeting generato da Webex.
+        \end{itemize}
+    \item \textbf{webex_id}:
+        \begin{itemize}
+            \item \textbf{Tipo}: VARCHAR(200)
+            \item \textbf{Descrizione}: id univoco del meeting generato da Webex.
+            Viene utilizzato per gestire tutte le operazioni che si effettuano sul meeting tramite le API di Webex.
+        \end{itemize}
+\end{enumerate}
+\vspace{20pt}
+Dato l'utilizzo di \textbf{JPA}, si è resa necessaria la mappatura della tabella a backend:
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize]
+@Entity
+@Table(name = "meet")
+@Data
+public class Meet {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id", nullable = false)
+  private long id;
+	
+  @Column(name = "data_inizio", nullable = false)
+  private Timestamp dataInizio;
+	
+  @Column(name = "data_fine",nullable = false)
+  private Timestamp dataFine;
+	
+  @ManyToOne
+  @JoinColumn(name = "id_utente", referencedColumnName = "id_utente", nullable = false)
+  private Utente utente;
+	
+  @ManyToOne
+  @JoinColumn(name = "id_azienda", referencedColumnName = "id_azienda", nullable = false)
+  private Azienda azienda;
+	
+  @Column(name = "link", nullable = false)
+  private String link;
+	
+  @Column(name = "webex_id", nullable = false)
+  private String webexId;
+}
+\end{lstlisting}
+
