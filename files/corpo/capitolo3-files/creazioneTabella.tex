@@ -90,7 +90,7 @@ Segue una descrizione dettagliata delle colonne:
 \end{enumerate}
 \vspace{20pt}
 Dato l'utilizzo di \textbf{JPA}, si è resa necessaria la mappatura della tabella a backend:
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize]
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
 @Entity
 @Table(name = "meet")
 @Data
@@ -121,4 +121,20 @@ public class Meet {
   private String webexId;
 }
 \end{lstlisting}
-
+Segue una breve spiegazione del codice:
+\begin{itemize}
+    \item \textbf{@Entity}: indica che questa classe è un'entità JPA, mappata a una tabella del database.
+    \item \textbf{@Table(name = "meet")}: specifica il nome della tabella a database  a cui è mappata questa entità.
+    \item \textbf{@Data}: un'annotazione di Lombock che genera automaticamente getter, setter, toString, equals, e hashCode per la classe.
+    \item \textbf{@Id}: definisce il campo id come la chiave primaria della tabella.
+    \item \textbf{@GeneratedValue(strategy = GenerationType.IDENTITY)}: delega al database la generazione dei valori della chiave primaria.
+    \item \textbf{@Column(name="", nullable=false)}:  definisce il nome della colonna nel database e imposta che il valore del campo non può essere NULL.
+    \item \textbf{@ManyToOne}: indica una relazione molti-a-uno, dove ogni Meet è associato a un singolo Utente e una singola Azienda,
+    ma ogni Utente e Azienda possono essere associati a più Meet.
+    \item \textbf{@JoinColumn(name = "", referencedColumnName = "", nullable = false)}:  specifica la colonna da utilizzare per la join 
+    con un'altra entità, definendo il nome della colonna locale e la colonna di riferimento dell'altra entità.
+\end{itemize}
+Il tipo e il nome definiti sotto ogni annotazione \textbf{@Column} sono quelli utilizzati per gestire l'entità. 
+Ad esempio, se si dispone di un oggetto \texttt{Meet} denominato \texttt{meet} e si desidera ottenere il timestamp che 
+indica la data di inizio, è sufficiente invocare \texttt{meet.getDataInizio()}. 
+Questo illustra la potenza di JPA, che semplifica l'accesso e la manipolazione degli attributi delle entità.

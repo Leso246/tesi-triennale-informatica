@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.21)  2 JUL 2024 11:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.21)  2 JUL 2024 22:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -562,6 +562,8 @@ Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
 \everycr=\toks44
 \minrowclearance=\skip82
 \rownum=\count357
+) (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/05/25 1.10b listings language file
 ) (c:/texlive/2024/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
  (c:/texlive/2024/texmf-dist/tex/latex/logreq/logreq.sty
@@ -818,24 +820,24 @@ Package csquotes Info: Redefining alias 'default' -> 'italian'.
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count489
@@ -855,7 +857,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 71.
+Package hyperref Info: Link coloring OFF on input line 99.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -869,8 +871,8 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: supertabular package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \it@ocap on input line 71.
-LaTeX Info: Redefining \it@ccap on input line 71.
+LaTeX Info: Redefining \it@ocap on input line 99.
+LaTeX Info: Redefining \it@ccap on input line 99.
 
 
 File italian.ldf warning: 
@@ -878,7 +880,7 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting
-italian.ldf    on input line 71.
+italian.ldf    on input line 99.
 
 \c@lstlisting=\count495
 Package biblatex Info: Trying to load language 'italian'...
@@ -894,8 +896,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 71.
-Package biblatex Info: Reference segment=0 on input line 71.
+Package biblatex Info: Reference section=0 on input line 99.
+Package biblatex Info: Reference segment=0 on input line 99.
  (./files/frontespizio.tex
 <./screenshot/logo_unimib.pdf, id=128, 67.8029pt x 66.29492pt>
 File: ./screenshot/logo_unimib.pdf Graphic file (type pdf)
@@ -937,8 +939,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.77 \listoffigures
-                    [1
+l.105 \listoffigures
+                     [1
 
 ] (./main.lof)
 \tf@lof=\write6
@@ -949,17 +951,17 @@ l.77 \listoffigures
 [2
 
 ] (./files/introduzione.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 4--92
+Underfull \hbox (badness 10000) in paragraph at lines 4--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--92
+Underfull \hbox (badness 10000) in paragraph at lines 4--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--92
+Underfull \hbox (badness 10000) in paragraph at lines 4--120
 
  []
 
@@ -1103,11 +1105,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--14
 [12
 
  <./screenshot/VisualizzazioneCalendario/VisualizzazioneSettimana.png> <./screenshot/VisualizzazioneCalendario/VisualizzazioneGiorno.png>]
-Overfull \hbox (9.0036pt too wide) in paragraph at lines 24--25
-[][][][][][][][][][][][][][][][][][] 
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 44--49
 
  []
@@ -1119,61 +1116,113 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--49
 
 
 
-[13] (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2024/05/25 1.10b listings language file
-)
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <7> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 97.
+[13]
 
-Overfull \hbox (43.24626pt too wide) in paragraph at lines 110--111
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[14]) (./files/corpo/capitolo3-files/creazioneMeeting.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--21
+
  []
 
 
-Overfull \hbox (52.17146pt too wide) in paragraph at lines 114--115
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+Underfull \hbox (badness 10000) in paragraph at lines 3--21
+
  []
 
-) (./files/corpo/capitolo3-files/creazioneMeeting.tex) (./files/corpo/capitolo3-files/getMeeting.tex) (./files/corpo/capitolo3-files/modificaMeeting.tex) (./files/corpo/capitolo3-files/deleteMeeting.tex)) (./files/corpo/capitolo4.tex
 
-[14]
 
 [15]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 66.
+ (c:/texlive/2024/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <10> not available
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 66.
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 67.
+LaTeX Font Info:    Trying to load font information for OML+cmtt on input line 80.
+LaTeX Font Info:    No file OMLcmtt.fd. on input line 80.
+
+
+LaTeX Font Warning: Font shape `OML/cmtt/m/n' undefined
+(Font)              using `OML/cmm/m/it' instead
+(Font)              for symbol `textless' on input line 80.
+
+
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 135--142
+
+ []
+
+
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 143--147
+
+ []
+
+
+
+[18]
+Overfull \hbox (1.63277pt too wide) in paragraph at lines 214--215
+[]\OT1/cmr/bx/n/10 enableConnectAudioBeforeHost\OT1/cmr/m/n/10 : per-met-te ai par-te-ci-pan-ti di uti-
+ []
+
+
+Overfull \hbox (30.51678pt too wide) in paragraph at lines 243--244
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+
+Overfull \hbox (23.0792pt too wide) in paragraph at lines 244--246
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+
+
+[19]) (./files/corpo/capitolo3-files/getMeeting.tex
+Underfull \hbox (badness 10000) in paragraph at lines 260--1
+
+ []
+
+) (./files/corpo/capitolo3-files/modificaMeeting.tex) (./files/corpo/capitolo3-files/deleteMeeting.tex)) (./files/corpo/capitolo4.tex
+
+[20]
 Capitolo 4.
 ) (./files/corpo/capitolo5.tex
 
-[16
+[21
 
 ]
 Capitolo 5.
 )
 
-[17
+[22
 
 ]
-Overfull \hbox (14.37408pt too wide) in paragraph at lines 375--375
+Overfull \hbox (14.37408pt too wide) in paragraph at lines 403--403
 []\OT1/cmr/m/n/10 Wikipedia. []  React (web fra-mework).[] (), in-di-riz-zo: []$\OT1/cmtt/m/n/10 https : / / it . wikipedia .
  []
 
 
-Overfull \hbox (12.80272pt too wide) in paragraph at lines 375--375
+Overfull \hbox (12.80272pt too wide) in paragraph at lines 403--403
 \OT1/cmtt/m/n/10 azure . microsoft . com / it -[] it / resources / cloud -[] computing -[] dictionary /
  []
 
 
-Overfull \hbox (9.05452pt too wide) in paragraph at lines 375--375
+Overfull \hbox (9.05452pt too wide) in paragraph at lines 403--403
 []\OT1/cmr/m/n/10 Geekandjob. []  Cos'^^Re Post-gre-SQL.[] (), in-di-riz-zo: []$\OT1/cmtt/m/n/10 https : / / www . geekandjob .
  []
 
 (./files/appendice.tex
 
-[18
+[23
 
 ]
 Appendice A.
 )
 
-[19
+[24
 
 ] (./main.aux)
  ***********
@@ -1191,18 +1240,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29135 strings out of 473599
- 501696 string characters out of 5732716
- 1966908 words of memory out of 5000000
- 51378 multiletter control sequences out of 15000+600000
- 563177 words of font info for 54 fonts, out of 8000000 for 9000
+ 29447 strings out of 473599
+ 506241 string characters out of 5732716
+ 2009908 words of memory out of 5000000
+ 51540 multiletter control sequences out of 15000+600000
+ 564169 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,11n,103p,2396b,1797s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (22 pages, 553424 bytes).
+ 94i,11n,103p,2396b,2432s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (27 pages, 625114 bytes).
 PDF statistics:
- 525 PDF objects out of 1000 (max. 8388607)
- 456 compressed objects within 5 object streams
- 161 named destinations out of 1000 (max. 500000)
+ 740 PDF objects out of 1000 (max. 8388607)
+ 654 compressed objects within 7 object streams
+ 302 named destinations out of 1000 (max. 500000)
  294 words of extra memory for PDF output out of 10000 (max. 10000000)
 

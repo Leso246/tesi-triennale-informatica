@@ -16,6 +16,11 @@
 \usepackage[italian]{babel} % mette la lingua italiana
 \usepackage{underscore} % Permette di usare gli underscore senza che vengano riconosciuti come caratteri speciali
 \usepackage{listings} 
+\lstset{
+    showspaces=false, % non mostrare gli spazi come simboli
+    showstringspaces=false, % non mostrare gli spazi all'interno di stringhe
+    showtabs=false % non mostrare le tabulazioni come simboli
+}
 
 % Definisce i colori che si possono utilizzare
 \usepackage{xcolor} 
@@ -24,6 +29,12 @@
 \definecolor{background}{HTML}{EEEEEE}
 \definecolor{delim}{RGB}{20,105,176}
 \colorlet{numb}{magenta!60!black}
+
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 
 % Definisce i colori per i json
 \lstdefinelanguage{json}{
@@ -43,6 +54,23 @@
       {\}}{{{\color{delim}{\}}}}}{1}
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
+}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
 }
 
 \pagestyle{plain} %oppure none
