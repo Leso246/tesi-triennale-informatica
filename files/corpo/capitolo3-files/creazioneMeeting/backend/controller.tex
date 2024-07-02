@@ -1,0 +1,56 @@
+\subsubsection{Controller}
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+@PostMapping(value = "/addMeet", consumes = "application/json")
+public ResponseEntity<?> addMeeting(@RequestBody ObjectNode obj) {
+  try {
+	Mono<Boolean> resultMono = serviceMeet.addMeet(obj);
+	Boolean result = resultMono.toFuture().get();
+
+	if (result) {
+	  return new ResponseEntity<>(result, HttpStatus.OK);
+	} else {
+	  return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+  } catch (Exception e) {
+	e.printStackTrace();
+	return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+  }
+}    
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Riga 1}:
+    l'annotazione indica che il metodo risponde a richieste HTTP POST sull'URL /addMeet 
+    e che il body della richiesta deve essere in formato JSON.
+  
+    \item \textbf{Riga 2}:
+    questo è il metodo che gestisce la richiesta HTTP. 
+        \begin{itemize}
+            \item \textbf{ResponseEntity\textless{}?{}\textgreater{}}: \texttt{ResponseEntity} è una classe di Spring che 
+            rappresenta l'intera risposta HTTP inviata al client. Il tipo generico "\textless{}?\textgreater{}" indica che il corpo 
+            della risposta può essere di qualsiasi tipo. In altre parole, il metodo può restituire una risposta che può 
+            contenere dati di qualsiasi tipo.
+            
+            \item \textbf{@RequestBody ObjectNode obj}: è un'annotazione di Spring che indica al framework di 
+            utlizzare il corpo della richiesta HTTP per popolare \texttt{obj}, \texttt{ObjectNode} è un oggetto fornito 
+            dalla libreria \textbf{Jackson} utile a rappresentare JSON in Java.
+            
+        \end{itemize}
+  
+    \item \textbf{Riga 4}:
+    all'interno del blocco try, viene chiamato il \textbf{service} attraverso
+    \texttt{serviceMeet.addMeet(obj)}, che restituisce un oggetto 
+    \texttt{Mono\textless{}Boolean\textgreater{}}. 
+    %TODO La classe \texttt{Mono} è parte del progetto Reactor, utilizzato per la programmazione reattiva in Java.
+  
+    \item \textbf{Riga 5}:
+    il risultato del Mono viene convertito in un Future e poi ottenuto. Questo metodo blocca l'esecuzione 
+    finché il risultato non è disponibile.
+  
+    \item \textbf{Riga 7}:
+    se il risultato è \texttt{true}, viene restituita una risposta HTTP con lo stato OK (200), altrimenti
+    viene restituita una risposta con lo stato INTERNAL_SERVER_ERROR (500).
+  
+    \item \textbf{Riga 12}:
+    se si verifica un'eccezione durante l'esecuzione, l'eccezione viene stampata nello stack trace e viene 
+    restituita una risposta con lo stato INTERNAL_SERVER_ERROR (500), contenente il messaggio dell'eccezione.
+  \end{itemize}

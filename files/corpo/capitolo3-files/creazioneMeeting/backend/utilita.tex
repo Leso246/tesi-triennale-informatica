@@ -1,0 +1,122 @@
+\subsubsection{CreateMeeting}
+Metodo per creare il meet su Webex:
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+public static Mono<JsonNode> addWebexMeet(
+    WebClient webexAPI, 
+    ObjectNode obj, 
+    String usernameAzienda,
+    String usernameUtente) {
+
+  String requestBody = createAddWebexMeetBody(obj, usernameAzienda, usernameUtente);
+
+  return webexAPI.post()
+    .uri(MeetingAPI.ADD_WEBEX_MEET)
+    .header(HttpHeaders.AUTHORIZATION, "Bearer " + MeetingAPI.TOKEN)
+    .contentType(MediaType.APPLICATION_JSON)
+    .bodyValue(requestBody)
+    .retrieve()
+    .bodyToMono(String.class).map(responseBody -> {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+            
+        try {
+            JsonNode jsonResponse = objectMapper.readTree(responseBody);
+            return jsonResponse;
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Errore durante il parsing della risposta JSON", e);
+        }
+    }).onErrorMap(e -> 
+                    new RuntimeException("Errore durante la chiamata all'API di Webex", e));
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Riga 7}: \texttt{createAddWebexMeetBody} è un metodo di utilità che permette di creare il body
+    della richiesta per l'API di Webex. Esempio:
+    \begin{lstlisting}[language=json,firstnumber=1]
+{
+    "title": "Riunione tra Mario e Tech SPA",
+    "start": "2024-06-25T16:00:00",
+    "end": "2024-06-25T17:00:00",
+    "invitees": [
+        {
+            "email": "techSPA@gmail.com",
+            "displayName": "Tech SPA",
+            "coHost": false
+        },
+        {
+            "email": "mario@gmail.com",
+            "displayName": "Mario",
+            "coHost": false
+        }
+    ],
+    "timezone": "Europe/Rome",
+    "enabledJoinBeforeHost": true,
+    "enableConnectAudioBeforeHost": true,
+    "joinBeforeHostMinutes": 15,
+    "scheduledType": "meeting",
+    "enableAutomaticLock": true,
+    "automaticLockMinutes": 60
+}
+    \end{lstlisting}
+    \begin{itemize}
+        \item \textbf{title}: titolo della riunione.
+        \item \textbf{start}: data e ora d'inizio della riunione, formattata secondo lo standard ISO 8601.
+        \item \textbf{end}: data e ora di fine della riunionw, formattata secondo lo standard ISO 8601.
+        \item \textbf{invitees}: lista degli invitati alla riunione. Webex invierà una mail agli indirizzi specificati, il nome
+        visualizzato è il valore contenuto in \texttt{displayName}.
+        \item \textbf{timezone}: il fuso orario in cui si terrà il meet.
+        \item \textbf{enabledJoinBeforeHost}: permette ai partecipanti di unirsi alla riunione anche senza la presenza dell'host. 
+        Questo attributo è fondamentale poiché l'azienda è l'organizzatrice di tutti i meeting ma non parteciperà a nessuno di essi.
+        \item \textbf{enableConnectAudioBeforeHost}: permette ai partecipanti di utilizzare l'audio anche in assenza dell'host.
+        \item \textbf{joinBeforeHostMinutes}: indica quanti minuti rispetto alla data di inizio della riunione i partecipanti possono unirsi anche senza la presenza dell'host.
+        \item \textbf{scheduledType}: indica il tipo di riunione, in questo caso è un meeting.
+        \item \textbf{enableAutomaticLock}: dopo un certo periodo di tempo, nessuno può partecipare al meeting senza essere accettato dall'host.
+        \item \textbf{automaticLockMinutes}: indica il periodo di tempo dopo il quale la riunione verrà automaticamente bloccata. 
+        Questo valore è calcolato come la differenza tra \texttt{end} e \texttt{start}, in modo che, dopo la data di fine prefissata, 
+        nessuno possa più partecipare.
+    \end{itemize}
+
+    \item \textbf{Righe 9-15}: viene effettuata una chiamata POST all'API 
+    \\ \texttt{https://webexapis.com/v1/meetings}, utilizzando il token d'autorizzazione \hyperref[sec:recupero_access_token]{generato} 
+    e passando come body il JSON precedentemente creato.
+
+    \item \textbf{Righe 20-21}: se la richiesta è andata a buon fine, viene restituito come risposta il JSON fornito dall'API di Webex.
+    
+\end{itemize}
+Metodo per creare il meet a database:
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+public static void addMeetToDatabase(
+    ObjectNode obj, 
+    Azienda azienda, 
+    Utente utente, 
+    MeetJPA repo, 
+    String link,
+    String webexId) {
+
+  try {
+    
+    Meet meet = new Meet();
+  
+    Timestamp dataInizio = Timestamp.valueOf(UtiltyMeet.transformUTCIntoRomeTimezone(obj.get("data_inizio").asText()));
+    Timestamp dataFine = Timestamp.valueOf(UtiltyMeet.transformUTCIntoRomeTimezone(obj.get("data_fine").asText()));
+
+    meet.setDataInizio(dataInizio);
+    meet.setDataFine(dataFine);
+    meet.setAzienda(azienda);
+    meet.setUtente(utente);
+    meet.setLink(link);
+    meet.setWebexId(webexId);
+
+    repo.save(meet);
+
+  } catch (Exception e) {
+    throw new RuntimeException("Errore durante la creazione del meeting al database", e);
+  }
+}
+\end{lstlisting}
+Questo metodo utilizza JPA per creare facilmente un record nella tabella \textbf{meet} del database.
+\\
+\\
+\textit{Nota: il frontend fornisce le date nel fuso orario UTC+0. Pertanto, è stato creato 
+un metodo \texttt{transformUTCIntoRomeTimezone} per convertire le date nel fuso orario di Roma. 
+Questo garantisce che le date siano corrette rispetto alla localizzazione del sistema.}

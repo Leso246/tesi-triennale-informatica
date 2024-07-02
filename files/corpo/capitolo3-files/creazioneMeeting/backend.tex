@@ -1,0 +1,23 @@
+\subsection{Backend}
+La creazione di un meeting nel backend viene gestita tramite una chiamata POST all'API \texttt{\//addMeet} con il seguente body:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+    "data_inizio": "2024-06-25T16:00:00.000Z", 
+    "data_fine": "2024-06-25T17:00:00.000Z",   
+    "azienda": "techSPA@gmail.com", 
+    "utente": "mario@gmail.com",
+    "invitati": [azienda1@outlook.com, azienda2@virgilio.it]
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{azienda}: l'email con cui l'azienda si è registrata su RisUma.
+    \item \textbf{utente}: l'email con cui l'utente si è registrata su RisUma.
+    \item \textbf{invitati}: un array contenente le email du ulteriori invitati, nel caso più persone dell'azienda volessero 
+    partecipare al colloquio. Questo attributo è opzionale; può essere vuoto o assente, e la creazione del meeting andrà comunque a buon fine.
+\end{itemize}
+% File del controller
+\subfile{backend/controller.tex}
+% File del service
+\subfile{backend/service.tex}
+% File di CreateMeeting
+\subfile{backend/utilita.tex}

@@ -1,0 +1,48 @@
+\subsubsection{Service}
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+public Mono<Boolean> addMeet(ObjectNode obj) {
+  try {
+    Azienda azienda = aziendaService.trovaPerEmail(obj.get("azienda").asText());
+    Utente utente = utenteService.trovaPerEmail(obj.get("utente").asText());
+
+    String usernameAzienda = azienda.getAnagraficaAz().getNome();
+    String usernameUtente = utente.getUsername();
+
+    return CreateMeeting
+      .addWebexMeet(webexAPI, obj, usernameAzienda, usernameUtente)
+      .flatMap(response -> {
+
+	    JsonNode jsonResponse = (JsonNode) response;
+	    String webLink = jsonResponse.get("webLink").asText();
+	    String meetingID = jsonResponse.get("id").asText();
+
+	    CreateMeeting.addMeetToDatabase(obj, azienda, utente, repo, webLink, meetingID);
+
+	    return Mono.just(true);
+    }).doOnError(error -> {
+         System.err.println("Errore durante la creazione del meeting su Webex: "
+         + error.getMessage());
+    }).onErrorReturn(false);
+  } catch (Exception e) {
+     e.printStackTrace();
+     return Mono.just(false);
+    }
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Righe 3-7}: vengono recuperati dal database il nome dell'azienda e lo username dell'utente invitati al meeting. 
+    Questo passaggio è fondamentale perché, come precedentemente menzionato, si intende limitare la comunicazione tra candidati 
+    e aziende esclusivamente attraverso RisUma. Poiché Webex invia una mail di notifica alla creazione del meeting, e non si voleva
+    disabilitare questa funzione, nella mail verranno mostrati i rispettivi username al posto degli indirizzi email degli invitati.
+
+    \item \textbf{Riga 10}: viene invocato il metodo responsabile della creazione del meeting sul database di Webex.
+
+    \item \textbf{Righe 11-19}: se la creazione del meeting su Webex ha avuto successo, il flusso d'esecuzzione passa al 
+    blocco \texttt{flatmap}. In questo blocco, vengono recuperati l'\texttt{ID} e il \texttt{link} della riunione dal JSON di risposta 
+    e viene chiamato il metodo per aggiungere il meeting anche nel database aziendale.
+    \\
+    \\
+    \textit{Nota: è fondamentale che, se la creazione del meet su Webex non ha avuto successo, il metodo
+    \texttt{addMeetToDatabase} non venga eseguito. Altrimenti, si rischierebbe di mostrare a frontend riunioni inesistenti.
+    Per tale motivo nel caso in cui venga generato un errore da Webex il flusso d'esecuzione non viene passatto al blocco \texttt{flatmap}}.
+\end{itemize}
