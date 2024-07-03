@@ -1,0 +1,83 @@
+\subsubsection{Repository}
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+@Repository
+public interface MeetJPA extends JpaRepository<Meet, Long> {
+    
+    @Query(value = "select new dto.MeetDTO("
+        + "m.id, "
+        + "m.dataInizio, "
+        + "m.dataFine, "
+        + "m.utente.username, "
+        + "m.azienda.anagraficaAz.nome, "
+        + "m.link, "
+        + "m.webexId) "
+        + "from Meet m  "
+        + "where m.azienda.id =:id_azienda")
+    public List<MeetDTO> getMeetAzienda(Long id_azienda);
+    
+    @Query(value = "select new dto.MeetDTO("
+        + "m.id, "
+        + "m.dataInizio, "
+        + "m.dataFine, "
+        + "m.utente.username, "
+        + "m.azienda.anagraficaAz.nome, "
+        + "m.link, "
+        + "m.webexId) "
+        + "from Meet m  "
+        + "where m.utente.id =:id_utente")
+    public List<MeetDTO> getMeetUtente(Long id_utente);
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Riga 1}: questa annotazione indica che l'interfaccia è una repository Spring. La classe fornisce operazioni CRUD su un oggetto. 
+    \cite{RepositorySpring}
+
+    \item \textbf{Righe 4-26}: queste due query personalizzate recuperano tutti i meet associati all'ID dell'utente, sono un esempio di utilizzo
+    del linguaggio \textbf{JPQL}. 
+\end{itemize}
+È interessante notare l'uso della sintassi \texttt{new dto.MeetDTO} nelle query JPQL: è stato necessario creare una classe \texttt{MeetDTO} in quanto, 
+se si fosse recuperata l'intera istanza di \texttt{Meet}, il database avrebbe restituito come attributi di \texttt{utente} e di \texttt{azienda} le 
+due istanze nella loro interezza, al posto dei due soli nomi, che sono invece di nostro interesse. Ovviamente ciò avrebbe fatto sorgere un 
+problema di sicurezza, in quanto sarebbero stati restituiti a frontend dati sensibili riguardo le due utenze.
+\\
+\\
+DTO, acronimo di Data Transfer Object, rappresenta un oggetto progettato appositamente per trasferire dati tra processi 
+all'interno di un sistema, in questo caso tra il database e il backend \cite{DataTransferObject}. L'implementazione di \texttt{MeetDTO} consente di selezionare 
+solo i campi pertinenti da \texttt{Meet} necessari per l'interesse dell'applicazione, escludendo informazioni non richieste e sensibili.
+Questo approccio non solo migliora le prestazioni dell'applicazione evitando il trasporto di dati non necessari, 
+ma anche rafforza la sicurezza limitando l'esposizione di informazioni sensibili.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+@Data
+@NoArgsConstructor
+public class MeetDTO {
+    private long id;
+    private Timestamp start;
+    private Timestamp end;
+    private String nomeUtente;
+    private String nomeAzienda;
+    private String link;
+    private String webexId;
+        
+    public MeetDTO(
+        long id, 
+        Timestamp start, 
+        Timestamp end, 
+        String nomeUtente, 
+        String nomeAzienda, 
+        String link,
+        String webexId) {
+            
+        super();
+        this.id = id;
+        this.start = start;
+        this.end = end;
+        this.nomeUtente = nomeUtente;
+        this.nomeAzienda = nomeAzienda;
+        this.link = link;
+        this.webexId = webexId;
+    }       
+}
+\end{lstlisting}
+Quando vengono recuperati i vari attributi delle due query JPQL, 
+viene utilizzato il costruttore della classe \texttt{MeetDTO} per creare un 
+oggetto di questa istanza che viene poi aggiunto alla \texttt{List} che il metoodo restituisce.

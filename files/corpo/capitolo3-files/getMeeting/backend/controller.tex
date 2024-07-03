@@ -1,0 +1,51 @@
+\subsubsection{Controller}
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+@GetMapping(value = "/getMeet")
+public ResponseEntity<?> getMeeting(@RequestParam("jwtToken") String jwtToken) {
+  try {
+     String email = gestioneToken.getEmailFromToken(jwtToken);
+     boolean isAzienda = gestioneToken.isAzienda(jwtToken);
+
+	  Long idUtente = 0l;
+
+	  if (isAzienda) {
+		  idUtente = serviceAzienda.trovaPerEmail(email).getId();
+	  } else {
+		  idUtente = serviceUtente.trovaPerEmail(email).getId();
+	  }
+
+	  List<Map<String, Object>> meets = serviceMeet.getMeet(isAzienda, idUtente);
+
+	  return new ResponseEntity<>(meets, HttpStatus.OK);
+
+   } catch(Exception e) {
+     e.printStackTrace();
+     return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+   }
+}    
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Riga 1}:
+    l'annotazione indica che il metodo risponde a richieste HTTP GET sull'URL /getMeet.
+  
+    \item \textbf{Riga 2}:
+    questo è il metodo che gestisce la richiesta HTTP. 
+        \begin{itemize}         
+            \item \textbf{@RequestParam("jwtToken") String jwtToken}: è un'annotazione di Spring che indica 
+            che la richiesta deve contenere un parametro \texttt{jwtToken}, 
+            il quale assegnato alla variabile di tipo \texttt{String} denominata \texttt{jwtToken}.      
+        \end{itemize}
+  
+    \item \textbf{Righe 4-13}:
+    viene recuperata l'email dal token e verifica se il token appartiene a un'azienda o a un utente. 
+    Una volta determinato il tipo di utente, viene recuperato l'ID corrispondente nella rispettiva tabella. 
+    Questo passaggio è cruciale perché è necessario mostrare solo i meet specifici di quell'utente e l'ID, 
+    che non è salvato nel \texttt{jwtToken}, è utilizzato come riferimento.
+  
+    \item \textbf{Riga 15}:
+    viene chiamato il service per recuperare i meet da database.
+  
+    \item \textbf{Righe 19-21}:
+    se si verifica un'eccezione durante l'esecuzione, l'eccezione viene stampata nello stack trace e viene 
+    restituita una risposta con lo stato INTERNAL_SERVER_ERROR (500), contenente il messaggio dell'eccezione.
+  \end{itemize}

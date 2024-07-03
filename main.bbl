@@ -322,6 +322,7 @@
       \strng{authornamehash}{9eddef35bc6181a35b1e146b9fbf2579}
       \strng{authorfullhash}{9eddef35bc6181a35b1e146b9fbf2579}
       \strng{authorfullhashraw}{9eddef35bc6181a35b1e146b9fbf2579}
+      \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -389,6 +390,91 @@
       \endverb
       \verb{url}
       \verb https://react.dev/learn/conditional-rendering
+      \endverb
+    \endentry
+    \entry{AutoWiredSpring}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=d58b26d9f7600672080ebf3851115e45}{%
+           family={Baeldung},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d58b26d9f7600672080ebf3851115e45}
+      \strng{fullhash}{d58b26d9f7600672080ebf3851115e45}
+      \strng{fullhashraw}{d58b26d9f7600672080ebf3851115e45}
+      \strng{bibnamehash}{d58b26d9f7600672080ebf3851115e45}
+      \strng{authorbibnamehash}{d58b26d9f7600672080ebf3851115e45}
+      \strng{authornamehash}{d58b26d9f7600672080ebf3851115e45}
+      \strng{authorfullhash}{d58b26d9f7600672080ebf3851115e45}
+      \strng{authorfullhashraw}{d58b26d9f7600672080ebf3851115e45}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 03.07.2024)}
+      \field{title}{Guide to Spring @Autowired}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.baeldung.com/spring-autowire
+      \endverb
+      \verb{url}
+      \verb https://www.baeldung.com/spring-autowire
+      \endverb
+    \endentry
+    \entry{RepositorySpring}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=7d4c8c3470b81f66a333ea469d3bad82}{%
+           family={Pankaj},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7d4c8c3470b81f66a333ea469d3bad82}
+      \strng{fullhash}{7d4c8c3470b81f66a333ea469d3bad82}
+      \strng{fullhashraw}{7d4c8c3470b81f66a333ea469d3bad82}
+      \strng{bibnamehash}{7d4c8c3470b81f66a333ea469d3bad82}
+      \strng{authorbibnamehash}{7d4c8c3470b81f66a333ea469d3bad82}
+      \strng{authornamehash}{7d4c8c3470b81f66a333ea469d3bad82}
+      \strng{authorfullhash}{7d4c8c3470b81f66a333ea469d3bad82}
+      \strng{authorfullhashraw}{7d4c8c3470b81f66a333ea469d3bad82}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 03.07.2024)}
+      \field{title}{Spring @Repository Annotation}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.digitalocean.com/community/tutorials/spring-repository-annotation
+      \endverb
+      \verb{url}
+      \verb https://www.digitalocean.com/community/tutorials/spring-repository-annotation
+      \endverb
+    \endentry
+    \entry{DataTransferObject}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9eddef35bc6181a35b1e146b9fbf2579}{%
+           family={Okta},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{9eddef35bc6181a35b1e146b9fbf2579}
+      \strng{fullhash}{9eddef35bc6181a35b1e146b9fbf2579}
+      \strng{fullhashraw}{9eddef35bc6181a35b1e146b9fbf2579}
+      \strng{bibnamehash}{9eddef35bc6181a35b1e146b9fbf2579}
+      \strng{authorbibnamehash}{9eddef35bc6181a35b1e146b9fbf2579}
+      \strng{authornamehash}{9eddef35bc6181a35b1e146b9fbf2579}
+      \strng{authorfullhash}{9eddef35bc6181a35b1e146b9fbf2579}
+      \strng{authorfullhashraw}{9eddef35bc6181a35b1e146b9fbf2579}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 03.07.2024)}
+      \field{title}{Data Transfer Object DTO Definition and Usage}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.okta.com/identity-101/dto/
+      \endverb
+      \verb{url}
+      \verb https://www.okta.com/identity-101/dto/
       \endverb
     \endentry
     \entry{AppuntiEuristicheNielsen}{misc}{}{}

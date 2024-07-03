@@ -137,7 +137,7 @@ useEffect(() => {
     setIsEventFinished(isEventFinished);
 }, [selectedEvent]);
 \end{lstlisting}
-\vspace{0.3cm}
+\subsubsection{Recupero degli invitati}
 Per quanto riguarda gli invitati a un meet, questi sono visualizzabili solo dall'azienda. 
 Poiché non vengono salvati nel database, è necessario fare una chiamata all'API di Webex per recuperarli.
 Considerato troppo oneroso effettuare una chiamata per ogni singolo meet durante il caricamento della 
@@ -158,8 +158,7 @@ const handleEventClick = async (arg: any) => {
         const payload = {
         id: arg.event.id,
         webexId: arg.event.extendedProps.webexId,
-        };
-    
+        };   
         try {
             const response = await getMeetInvitees(payload);
             if (response.status === 200) {
@@ -170,6 +169,5 @@ const handleEventClick = async (arg: any) => {
           } catch (error) {
             console.error('Errore nel recupero degli invitati:', error);
           }
-        }
-    ...
+        } ...
 \end{lstlisting}

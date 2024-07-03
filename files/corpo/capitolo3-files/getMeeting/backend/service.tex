@@ -1,0 +1,33 @@
+\subsubsection{Service}
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+@Autowired
+private MeetJPA repo;
+
+public  List<Map<String, Object>> getMeet(boolean isAzienda, Long idUtente) {
+  List<MeetDTO> meets;
+
+	if (isAzienda) {
+		meets =  repo.getMeetAzienda(idUtente);
+	} else {
+		meets = repo.getMeetUtente(idUtente);
+	}
+
+  List<Map<String, Object>> transformedMeets = 
+      meets.stream()
+		  .map(meet -> UtiltyMeet.transformMeetDTO(meet, isAzienda))
+        .collect(Collectors.toList());
+
+  return transformedMeets;
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Righe 1-2}: questa annotazione indica a Spring di iniettare automaticamente un'istanza del bean \texttt{MeetJPA}
+    nella variabile \texttt{repo} quando viene creata un'istanza di \texttt{MeetService}. \cite{AutoWiredSpring}
+    In questo contesto, la classe \texttt{MeetService} ha bisogno di accedere al repository \texttt{MeetJPA} per effettuare
+    operazioni CRUD sui meet.
+
+    \item \textbf{righe 8-12}: a seconda che l'utente sia un'azienda o un candidato, vengono recuperati i meet associati.
+    
+    \item \textbf{Righe 14-17}: metodo di utilità che itera sull'array di JSON restituito dal
+    database e formatta ogni elemento in modo che possa essere letto correttamente da \texttt{FullCalendar}.
+\end{itemize}
