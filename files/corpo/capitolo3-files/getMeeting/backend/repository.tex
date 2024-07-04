@@ -2,7 +2,8 @@
 \begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
 @Repository
 public interface MeetJPA extends JpaRepository<Meet, Long> {
-    
+    public Meet findMeetById(Long id);
+
     @Query(value = "select new dto.MeetDTO("
         + "m.id, "
         + "m.dataInizio, "
@@ -31,6 +32,10 @@ public interface MeetJPA extends JpaRepository<Meet, Long> {
 \begin{itemize}
     \item \textbf{Riga 1}: questa annotazione indica che l'interfaccia è una repository Spring. La classe fornisce operazioni CRUD su un oggetto. 
     \cite{RepositorySpring}
+
+    \item \textbf{Riga 3}: questo metodo consente di recuperare un'istanza di \texttt{Meet} a database dato il suo id. Spring Data JPA
+    genera automaticamente l'implementazione di questo metodo basandosi sul suo nome. Verrà utilizzato per il 
+    \hyperref[sec:recupero_invitati_backend]{recupero degli invitati}.
 
     \item \textbf{Righe 4-26}: queste due query personalizzate recuperano tutti i meet associati all'ID dell'utente, sono un esempio di utilizzo
     del linguaggio \textbf{JPQL}. 
@@ -78,6 +83,6 @@ public class MeetDTO {
     }       
 }
 \end{lstlisting}
-Quando vengono recuperati i vari attributi delle due query JPQL, 
+Quando vengono recuperati i vari attributi della query JPQL, 
 viene utilizzato il costruttore della classe \texttt{MeetDTO} per creare un 
-oggetto di questa istanza che viene poi aggiunto alla \texttt{List} che il metoodo restituisce.
+oggetto di questa classe che viene poi aggiunto alla \texttt{List} che il metoodo restituisce.
