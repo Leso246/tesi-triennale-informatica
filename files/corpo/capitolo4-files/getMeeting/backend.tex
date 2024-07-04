@@ -10,12 +10,15 @@ GET all'API \texttt{\//getMeet} con il parametro \texttt{jwtToken}.
 \subfile{backend/repository.tex}
 \subsubsection{Recupero degli invitati}
 \label{sec:recupero_invitati_backend}
-In relazione al recupero degli invitati a backend, si pone questo problema: recuperando le mail di tutti
+In relazione al recupero degli invitati a backend, si presenta il seguente problema: recuperando le mail di tutti
 gli invitati al meet da Webex, viene recuperato anche il contatto del candidato. Se questo venisse mostrato 
 a frontend, verrebbe meno l'obiettivo prefissato, ovvero non consentire alle aziende di contattare i candidati
 al di fuori della piattaforma, almeno fino al primo colloquio. Per risolvere questo problema, una volta 
-ottenuto l'array contenente la mail degli invitati, viene recuperata l'istanza \texttt{Utente} del candidato
-associato al meet grazie al metodo \texttt{findMeetById}, e la sua mail viene sostituita con il suo nome utente.
+ottenuto l'array contenente le mail degli invitati dall'API \texttt{https://webexapis.com/v1/meetingInvitees/?meetingId=} di Webex, 
+viene recuperata l'istanza \texttt{Utente} del candidato associato al \texttt{Meet} grazie al metodo \texttt{findMeetById}, 
+successivamente la mail del candidato viene sostituita con il suo nome utente.
+Si vuole far notare che la mail dell'utente è obbligatoriamente presente, poiché è stata utilizzata per creare il meeting.
+Se così non fosse, la creazione del meeting non sarebbe andata a buon fine.
 \begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
 private static ArrayList<String> removeRisumaUserEmail(
   ObjectNode obj, 

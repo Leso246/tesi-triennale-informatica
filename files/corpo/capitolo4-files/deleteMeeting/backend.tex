@@ -1,0 +1,95 @@
+\subsection{Backend}
+\subsubsection{Controller}
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+@DeleteMapping(value = "/deleteMeet")
+    public ResponseEntity<?> deleteMeeting(@RequestBody ObjectNode obj) {
+		try {
+			Mono<Boolean> resultMono = serviceMeet.deleteMeet(obj);
+			Boolean result = resultMono.toFuture().get();
+
+			if (result) {
+				return new ResponseEntity<>(result, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Riga 1}: l’annotazione indica che il metodo risponde a richieste HTTP
+    DELETE sull’URL /deleteMeet.
+
+    \item \textbf{Righe 4-5}: viene chiamato il service che restituisce un oggetto \texttt{Mono<Boolean>}. 
+    L'esecuzione viene sospesa fino a quando il risultato non viene ottenuto tramite il metodo \texttt{toFuture().get()}.
+
+    \item \textbf{Righe 7-15}: se l'operazione di eliminazione è riuscita, viene restituita una risposta con stato HTTP 200 (OK). 
+    In caso contrario, viene restituita una risposta con stato HTTP 500 (Internal Server Error).
+\end{itemize}
+\subsubsection{Service}
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+public Mono<Boolean> deleteMeet(ObjectNode obj) {
+    try {
+        Long idDatabase = obj.get("id").asLong();
+        String webexId = obj.get("webexId").asText();
+
+        return DeleteMeeting.deleteWebexMeet(webexAPI, webexId).flatMap(success -> {
+            if (success) {
+                DeleteMeeting.deleteDatabaseMeet(repo, idDatabase);
+                return Mono.just(true);
+            } else {
+                return Mono.just(false);
+            }
+        }).doOnError(error -> {
+            System.err.println("Errore durante la modifica del meeting su Webex: " + error.getMessage());
+        }).onErrorReturn(false);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        return Mono.just(false);
+    }
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Righe 3-4}: vengono recupeati i campi \texttt{id} e \texttt{webexId} associati al meet passati dal frontend. 
+    \item \textbf{Righe 6-8}: viene chiamato il metodo per eliminare il meet su Webex. Se l'operazione va a buon fine, 
+    viene chiamato il metodo per eliminare il record del meeting a database. 
+\end{itemize}
+\subsubsection{DeleteMeeting}
+\noindent Metodo per eliminare il meet su Webex: viene effettuata una richiesta DELETE all'API \texttt{https://webexapis.com/v1/meetings/webexId}.
+L'unico parametro necessario è il \texttt{WebexId}, insieme al token per autenticare l'API.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+ public static Mono<Boolean> deleteWebexMeet(WebClient webexAPI, String webexId) {
+	String uri = MeetingAPI.DELETE_WEBEX_MEET + webexId;
+
+	return webexAPI.delete()
+	    .uri(uri)
+	    .header(HttpHeaders.AUTHORIZATION, "Bearer " + MeetingAPI.TOKEN)
+	    .exchangeToMono(response -> {
+	        if (response.statusCode().is2xxSuccessful()) {
+	            return Mono.just(true);
+	        } else {
+	            return response.createException().flatMap(Mono::error);
+	        }
+	    })
+	    .onErrorResume(e -> Mono.just(false));
+}
+\end{lstlisting}
+\noindent Metodo per eliminare il record del meet a database: viene recuperata l'istanza del \texttt{Meet} grazie al suo ID
+utilizzando il metodo \texttt{findMeetById}. Successivamente viene rimosso dal database.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+public static void deleteDatabaseMeet(MeetJPA repo, Long id) {	
+    try {     
+        Meet meetDaEliminare = repo.findMeetById(id);      
+        repo.delete(meetDaEliminare);      
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw new RuntimeException(
+            "Errore durante l'eliminazione del meeting al database", e
+        );
+    }
+}
+\end{lstlisting}

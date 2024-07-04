@@ -10,8 +10,7 @@ useEffect(() => {
            const response = await ritornaMeeting(jwtToken);
            setEvents(response.data);
         } catch (error) {
-           setPopupBackgroundColor('red');
-           showPopup('Errore durante il caricamento dei colloqui');
+           showPopup('Errore durante il caricamento dei colloqui', false);
            console.error('Errore durante il recupero degli eventi:', error);
         }
     };  
@@ -138,7 +137,7 @@ useEffect(() => {
 }, [selectedEvent]);
 \end{lstlisting}
 \subsubsection{Recupero degli invitati}
-Per quanto riguarda gli invitati a un meet, questi sono visualizzabili solo dall'azienda. 
+Per quanto riguarda gli invitati a un meet, questi sono visualizzabili \textbf{solo} dall'azienda. 
 Poiché non vengono salvati nel database, è necessario fare una chiamata all'API di Webex per recuperarli.
 Considerato troppo oneroso effettuare una chiamata per ogni singolo meet durante il caricamento della 
 pagina, l'API \texttt{/getMeetInvitees} viene chiamata ogni 
