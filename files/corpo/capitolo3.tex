@@ -1,1 +1,53 @@
 \chapter{Struttura del progetto}
+\section{Frontend}
+Il frontend del progetto è stato strutturato in modo da massimizzare la leggibilità del codice e sfruttare al meglio 
+la modularità offerta da React.
+
+\begin{itemize}
+    \item \textbf{Pagina principale}: la pagina principale costituisce il nucleo dell'interfaccia utente,
+    funge da contenitore per i vari componenti che insieme andranno a formare la pagina visualizzata. 
+
+    \item \textbf{Componenti}: ogni componente è progettato per gestire una specifica parte dell'interfaccia utente. 
+    Questo favorisce la modularità di React, consentendo di riutilizzare facilmente le stesse interfacce in diverse parti dell'applicazione,
+    oltre a facilitare la manutenzione del codice e a migliorarne la leggibilità. 
+
+    \item \textbf{Metodi}: tutti i metodi utilizzati nella logica del frontend sono posti in file separati, suddivisi per semantica.
+    Questa struttura migliora la leggibilità e la comprensione del codice.
+    
+    \item \textbf{useEffect}: uno \texttt{useEffect} è un hook di React che viene eseguito in risposta a cambiamenti specifici nello stato 
+    dell'applicazione o al caricamento dei componenti nel DOM \cite{reactUseEffect}. Anche in questo caso tutti
+    gli useEffect sono stati divisi in file in base alla loro semantica.
+
+    \item \textbf{Centralizzazione degli \texttt{useState}}: uno \texttt{useState} è un hook di React che permette di aggiungere
+    una variabile di stato locale a un componenete \cite{reactUseState}. Questi sono stati centralizzati utilizzando la Context API di React. 
+    La pagina principale viene wrappata con un contesto, permettendo ai componenti figli di accedere e modificare lo stato globale 
+    senza dover passare props attraverso vari livelli di componenti. 
+\end{itemize}
+\clearpage
+\section{Backend}
+Il backend del progetto è stato progettato seguendo principi che favoriscono la manutenibilità 
+e l'efficienza delle operazioni di business. È organizzato secondo un'architettura a tre strati, che include Controller, 
+Service e Repository.
+
+\begin{itemize}
+
+\item \textbf{Controller}: i Controller costituiscono il punto di ingresso delle richieste API provenienti dal frontend. 
+Gestiscono la ricezione delle richieste HTTP, validazione dei dati e routing delle operazioni verso il Service appropriato. 
+Questo livello fornisce un'interfaccia verso l'esterno dell'applicazione, separando la logica di gestione delle richieste 
+dalla logica di business sottostante.
+
+\item \textbf{Service}: il Service è responsabile della logica di business dell'applicazione. 
+Ogni Service si occupa di una specifica area funzionale dell'applicazione, coordinando le operazioni necessarie per soddisfare 
+le richieste ricevute dai Controller. Il Service coordina le interazioni con i Repository.
+
+\item \textbf{Repository}: i Repository si interfacciano direttamente con le fonti di dati, che possono essere il database  
+o API esterne di servizi di terze parti. Forniscono un'astrazione dell'accesso ai dati, permettendo al Service di accedere e manipolare 
+i dati in modo uniforme, indipendentemente dalla specifica implementazione del sistema di persistenza dei dati. 
+Questo approccio facilita la sostituzione o l'aggiornamento delle tecnologie di accesso ai dati senza modificare la 
+logica di business.
+
+\item \textbf{Gestione delle chiamate API esterne}: nel caso in cui le operazioni richiedano l'interazione con API esterne, 
+i Repository sono progettati per gestire queste comunicazioni. Questo include la configurazione delle richieste HTTP, 
+la gestione delle risposte e la gestione degli errori.
+
+\end{itemize}

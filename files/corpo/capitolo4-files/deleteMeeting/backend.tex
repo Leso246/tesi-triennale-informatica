@@ -58,7 +58,7 @@ public Mono<Boolean> deleteMeet(ObjectNode obj) {
     \item \textbf{Righe 6-8}: viene chiamato il metodo per eliminare il meet su Webex. Se l'operazione va a buon fine, 
     viene chiamato il metodo per eliminare il record del meeting a database. 
 \end{itemize}
-\subsubsection{DeleteMeeting}
+\subsubsection{Repository}
 \noindent Metodo per eliminare il meet su Webex: viene effettuata una richiesta DELETE all'API \texttt{https://webexapis.com/v1/meetings/webexId}.
 L'unico parametro necessario è il \texttt{WebexId}, insieme al token per autenticare l'API.
 \begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]

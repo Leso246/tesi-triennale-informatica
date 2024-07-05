@@ -77,6 +77,35 @@
       \endverb
       \keyw{TypeScript}
     \endentry
+    \entry{Axios}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=696024c5649be95fea16800c629f82da}{%
+           family={Geekandjob},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{696024c5649be95fea16800c629f82da}
+      \strng{fullhash}{696024c5649be95fea16800c629f82da}
+      \strng{fullhashraw}{696024c5649be95fea16800c629f82da}
+      \strng{bibnamehash}{696024c5649be95fea16800c629f82da}
+      \strng{authorbibnamehash}{696024c5649be95fea16800c629f82da}
+      \strng{authornamehash}{696024c5649be95fea16800c629f82da}
+      \strng{authorfullhash}{696024c5649be95fea16800c629f82da}
+      \strng{authorfullhashraw}{696024c5649be95fea16800c629f82da}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 25.06.2024)}
+      \field{title}{Axios}
+      \verb{urlraw}
+      \verb https://www.geekandjob.com/wiki/axios
+      \endverb
+      \verb{url}
+      \verb https://www.geekandjob.com/wiki/axios
+      \endverb
+      \keyw{Axios}
+    \endentry
     \entry{JavaWikipedia}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
@@ -92,8 +121,8 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{(Data di accesso: 24.06.2024)}
@@ -120,8 +149,8 @@
       \strng{authornamehash}{140864078aeca1c7c35b4beb33c53c34}
       \strng{authorfullhash}{140864078aeca1c7c35b4beb33c53c34}
       \strng{authorfullhashraw}{140864078aeca1c7c35b4beb33c53c34}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{(Data di accesso: 25.06.2024)}
@@ -150,8 +179,8 @@
       \strng{authornamehash}{00fc6a44015ab86fdbbfcf8072e40ffe}
       \strng{authorfullhash}{00fc6a44015ab86fdbbfcf8072e40ffe}
       \strng{authorfullhashraw}{00fc6a44015ab86fdbbfcf8072e40ffe}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{(Data di accesso: 25.06.2024)}
@@ -181,8 +210,8 @@
       \strng{authornamehash}{8832ab0b5e1e20c323af6985ae54f382}
       \strng{authorfullhash}{8832ab0b5e1e20c323af6985ae54f382}
       \strng{authorfullhashraw}{8832ab0b5e1e20c323af6985ae54f382}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{(Data di accesso: 25.06.2024)}
@@ -210,8 +239,9 @@
       \strng{authornamehash}{696024c5649be95fea16800c629f82da}
       \strng{authorfullhash}{696024c5649be95fea16800c629f82da}
       \strng{authorfullhashraw}{696024c5649be95fea16800c629f82da}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{(Data di accesso: 25.06.2024)}
@@ -238,8 +268,8 @@
       \strng{authornamehash}{59b3b9d9f73544da1bf3ea1b63e7802f}
       \strng{authorfullhash}{59b3b9d9f73544da1bf3ea1b63e7802f}
       \strng{authorfullhashraw}{59b3b9d9f73544da1bf3ea1b63e7802f}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{(Data di accesso: 27.06.2024)}
@@ -267,8 +297,8 @@
       \strng{authornamehash}{c07a98e489e58c1243713e7147a7b96e}
       \strng{authorfullhash}{c07a98e489e58c1243713e7147a7b96e}
       \strng{authorfullhashraw}{c07a98e489e58c1243713e7147a7b96e}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{(Data di accesso: 27.06.2024)}

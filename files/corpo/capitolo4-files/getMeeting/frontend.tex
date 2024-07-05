@@ -1,6 +1,5 @@
 \subsection{Frontend}
 Ogni volta che la pagina viene caricata, viene chiamato uno \texttt{useEffect}.
-Lo \texttt{useEffect} è un hook di React che viene eseguito quando il componenete viene montato nel DOM. \cite{reactUseEffect}
 \begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
 useEffect(() => {
     const jwtToken = TokenAuth.getTokenAuth();
@@ -39,8 +38,7 @@ export const ritornaMeeting = (jwtToken: string) => {
             \end{lstlisting}
         \end{itemize}
 
-    \item \textbf{Riga 7}: \texttt{setEvents} è uno \texttt{useState}, ovvero un hook di React che permette di aggiungere
-    una variabile di stato locale a un componenete. \cite{reactUseState} In questo caso è usato per impostare gli eventi 
+    \item \textbf{Riga 7}: \texttt{setEvents} è uno \texttt{useState}.  In questo caso è usato per impostare gli eventi 
     di \texttt{Fullcalendar} in modo da poterli visualizzare. \texttt{Fullcalendar} accetta un array di eventi così formattati:
 \begin{lstlisting}[language=json,firstnumber=1]
 [
