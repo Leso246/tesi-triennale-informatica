@@ -2394,7 +2394,8 @@
     <bcf:citekey order="16" intorder="1">AutoWiredSpring</bcf:citekey>
     <bcf:citekey order="17" intorder="1">RepositorySpring</bcf:citekey>
     <bcf:citekey order="18" intorder="1">DataTransferObject</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">AppuntiEuristicheNielsen</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">reactConditionalRendering</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">AppuntiEuristicheNielsen</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

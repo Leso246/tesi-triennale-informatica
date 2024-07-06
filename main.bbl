@@ -254,6 +254,62 @@
       \endverb
       \keyw{PostgreSQL}
     \endentry
+    \entry{reactUseEffect}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=50ce2da63bea6a618e7578fa50690040}{%
+           family={React},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{fullhash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{fullhashraw}{50ce2da63bea6a618e7578fa50690040}
+      \strng{bibnamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorbibnamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authornamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorfullhash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorfullhashraw}{50ce2da63bea6a618e7578fa50690040}
+      \field{extraname}{1}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 03.07.2024)}
+      \field{title}{useEffect}
+      \verb{urlraw}
+      \verb https://react.dev/reference/react/useEffect
+      \endverb
+      \verb{url}
+      \verb https://react.dev/reference/react/useEffect
+      \endverb
+    \endentry
+    \entry{reactUseState}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=50ce2da63bea6a618e7578fa50690040}{%
+           family={React},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{fullhash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{fullhashraw}{50ce2da63bea6a618e7578fa50690040}
+      \strng{bibnamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorbibnamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authornamehash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorfullhash}{50ce2da63bea6a618e7578fa50690040}
+      \strng{authorfullhashraw}{50ce2da63bea6a618e7578fa50690040}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(Data di accesso: 03.07.2024)}
+      \field{title}{useState}
+      \verb{urlraw}
+      \verb https://react.dev/reference/react/useState
+      \endverb
+      \verb{url}
+      \verb https://react.dev/reference/react/useState
+      \endverb
+    \endentry
     \entry{WebexSandboxAccount}{online}{}{}
       \name{author}{1}{}{%
         {{hash=59b3b9d9f73544da1bf3ea1b63e7802f}{%
@@ -268,8 +324,8 @@
       \strng{authornamehash}{59b3b9d9f73544da1bf3ea1b63e7802f}
       \strng{authorfullhash}{59b3b9d9f73544da1bf3ea1b63e7802f}
       \strng{authorfullhashraw}{59b3b9d9f73544da1bf3ea1b63e7802f}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{(Data di accesso: 27.06.2024)}
@@ -310,34 +366,6 @@
       \verb https://fullcalendar.io/
       \endverb
     \endentry
-    \entry{reactUseEffect}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=50ce2da63bea6a618e7578fa50690040}{%
-           family={React},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{fullhash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{fullhashraw}{50ce2da63bea6a618e7578fa50690040}
-      \strng{bibnamehash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{authorbibnamehash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{authornamehash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{authorfullhash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{authorfullhashraw}{50ce2da63bea6a618e7578fa50690040}
-      \field{extraname}{1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(Data di accesso: 03.07.2024)}
-      \field{title}{useEffect}
-      \verb{urlraw}
-      \verb https://react.dev/reference/react/useEffect
-      \endverb
-      \verb{url}
-      \verb https://react.dev/reference/react/useEffect
-      \endverb
-    \endentry
     \entry{jwtToken}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9eddef35bc6181a35b1e146b9fbf2579}{%
@@ -364,34 +392,6 @@
       \endverb
       \verb{url}
       \verb https://auth0.com/docs/secure/tokens/json-web-tokens
-      \endverb
-    \endentry
-    \entry{reactUseState}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=50ce2da63bea6a618e7578fa50690040}{%
-           family={React},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{fullhash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{fullhashraw}{50ce2da63bea6a618e7578fa50690040}
-      \strng{bibnamehash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{authorbibnamehash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{authornamehash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{authorfullhash}{50ce2da63bea6a618e7578fa50690040}
-      \strng{authorfullhashraw}{50ce2da63bea6a618e7578fa50690040}
-      \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(Data di accesso: 03.07.2024)}
-      \field{title}{useState}
-      \verb{urlraw}
-      \verb https://react.dev/reference/react/useState
-      \endverb
-      \verb{url}
-      \verb https://react.dev/reference/react/useState
       \endverb
     \endentry
     \entry{reactConditionalRendering}{online}{}{}
@@ -523,8 +523,8 @@
       \strng{authornamehash}{7ec7135e03595bf516dc6faf9c5b4bc6}
       \strng{authorfullhash}{7ec7135e03595bf516dc6faf9c5b4bc6}
       \strng{authorfullhashraw}{7ec7135e03595bf516dc6faf9c5b4bc6}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Università degli Studi di Milano-Bicocca, Docente: Cabitza Federico Antonio Niccolò Amedeo, Anno Accademico 2023-2024}

@@ -34,16 +34,19 @@
 \contentsline {subsubsection}{Recupero degli invitati}{30}{section*.22}%
 \contentsline {section}{\numberline {4.8}Modifica dei meeting}{30}{section.4.8}%
 \contentsline {subsection}{\numberline {4.8.1}Frontend}{30}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Backend}{30}{subsection.4.8.2}%
-\contentsline {section}{\numberline {4.9}Eliminazione dei meeting}{30}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Frontend}{30}{subsection.4.9.1}%
-\contentsline {subsection}{\numberline {4.9.2}Backend}{33}{subsection.4.9.2}%
-\contentsline {subsubsection}{Controller}{33}{section*.26}%
-\contentsline {subsubsection}{Service}{33}{section*.27}%
-\contentsline {subsubsection}{Repository}{34}{section*.28}%
-\contentsline {chapter}{\numberline {5}Idee future}{35}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Atuenticazione delle chiamate API}{35}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Integrazione con Google Calendar}{35}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Miglioramento della visualizzazione mobile}{36}{section.5.3}%
-\contentsline {chapter}{Bibliografia}{40}{chapter*.32}%
-\contentsline {chapter}{\numberline {A}Euristiche di Nielsen}{41}{appendix.Alph1}%
+\contentsline {subsubsection}{Modifica di data e ora}{31}{section*.24}%
+\contentsline {subsubsection}{Aggiunta degli invitati}{33}{section*.29}%
+\contentsline {subsubsection}{Salvataggio delle modifiche}{34}{section*.31}%
+\contentsline {subsection}{\numberline {4.8.2}Backend}{34}{subsection.4.8.2}%
+\contentsline {section}{\numberline {4.9}Eliminazione dei meeting}{34}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Frontend}{34}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Backend}{37}{subsection.4.9.2}%
+\contentsline {subsubsection}{Controller}{37}{section*.35}%
+\contentsline {subsubsection}{Service}{37}{section*.36}%
+\contentsline {subsubsection}{Repository}{38}{section*.37}%
+\contentsline {chapter}{\numberline {5}Idee future}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Atuenticazione delle chiamate API}{39}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Integrazione con Google Calendar}{39}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Miglioramento della visualizzazione mobile}{40}{section.5.3}%
+\contentsline {chapter}{Bibliografia}{44}{chapter*.41}%
+\contentsline {chapter}{\numberline {A}Euristiche di Nielsen}{45}{appendix.Alph1}%
