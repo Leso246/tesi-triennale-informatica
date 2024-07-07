@@ -17,6 +17,7 @@
 \usepackage[italian]{babel} % imposta la lingua italiana
 \usepackage{underscore} % permette di usare gli underscore senza che vengano riconosciuti come caratteri speciali
 \setcounter{tocdepth}{4} % permette di visualizzare le subsubsection nell'indice
+
 % Per generare la bibliografia
 \usepackage[
 backend=biber,
@@ -103,9 +104,7 @@ sorting=none
   tabsize=3
 }
 
-\pagestyle{plain} %oppure none
-% Altrimenti usare fancy header per più controllo: 
-%https://www.overleaf.com/learn/latex/Headers_and_footers#Using_the_fancyhdr_package
+\pagestyle{plain}
 
  % Numerazione delle prima pagina con i numeri romani
 \pagenumbering{roman}
@@ -134,7 +133,9 @@ scientific documents}}
 \setcounter{page}{1}
  
 % File di introduzione
-\subfile{files/introduzione.tex} 
+\subfile{files/introduzione.tex}
+% Stato dell'arte
+\subfile{files/stato_dell_arte.tex} 
 % Capitolo 1 - Tecnlogie Utilizzate
 \subfile{files/corpo/capitolo1.tex}
 % Capitolo 2 - Approccio proposto
