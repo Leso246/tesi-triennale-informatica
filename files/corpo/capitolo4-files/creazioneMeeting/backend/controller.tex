@@ -40,7 +40,6 @@ public ResponseEntity<?> addMeeting(@RequestBody ObjectNode obj) {
     all'interno del blocco try, viene chiamato il \textbf{service} attraverso
     \texttt{serviceMeet.addMeet(obj)}, che restituisce un oggetto 
     \texttt{Mono\textless{}Boolean\textgreater{}}. 
-    %TODO La classe \texttt{Mono} è parte del progetto Reactor, utilizzato per la programmazione reattiva in Java.
   
     \item \textbf{Riga 5}:
     il risultato del Mono viene convertito in un Future e poi ottenuto. Questo metodo blocca l'esecuzione 

@@ -1,0 +1,121 @@
+\subsubsection{Repository}
+Per modificare l'orario di un meeting, viene effettuata una richiesta PATCH 
+all'API \texttt{https://webexapis.com/v1/meetings/webexId}.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+public static Mono<Boolean> modifyWebexMeetDate(WebClient webexAPI, JsonNode evento) {
+	try {
+		ObjectNode requestBody = UtiltyMeet.createModifyWebexMeetDateBody(evento);
+		String webexId = evento.get("extendedProps").get("webexId").asText();
+
+		String uri = MeetingAPI.MODIFY_WEBEX_MEET_DATE + webexId;
+
+		return webexAPI
+			.patch()
+			.uri(uri)
+			.header(HttpHeaders.AUTHORIZATION, "Bearer " + MeetingAPI.TOKEN)
+			.contentType(MediaType.APPLICATION_JSON)
+			.bodyValue(requestBody)
+			.retrieve()
+			.toBodilessEntity()
+			.thenReturn(true).onErrorMap(e -> new RuntimeException(
+				"Errore durante la chiamata all'API di Webex per la modifica di un evento", e));
+
+	} catch (Exception e) {
+		e.printStackTrace();
+		return Mono.just(false);
+	}
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Riga 3}: metodo di utilità per costruire il body della richiesta
+        \begin{lstlisting}[language=json,firstnumber=1]
+{
+    "start": "2024-07-22T10:00:00",
+    "end": "2024-07-22T11:00:00",
+    "timezone": "Europe/Rome"
+}
+        \end{lstlisting}
+    
+    \item \textbf{Righe 8-17}: chiamata all'API.
+\end{itemize}
+Per aggiungere gli invitati a un meeting, viene effettuata una richiesta POST 
+all'API \texttt{https://webexapis.com/v1/meetingInvitees/bulkInsert}.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+public static Mono<Boolean> modifyWebexMeetInvitees(WebClient webexAPI, JsonNode evento, List<String> invitatiList) {
+	try {		
+		if (invitatiList.size() != 0) {		
+			ObjectNode requestBody =  createModifyWebexInviteesBody(evento, invitatiList);
+
+			return webexAPI.post().uri(MeetingAPI.MODIFY_WEBEX_MEET_INVITEES)
+				.header(HttpHeaders.AUTHORIZATION, "Bearer " + MeetingAPI.TOKEN)
+				.contentType(MediaType.APPLICATION_JSON).bodyValue(requestBody).retrieve().toBodilessEntity()
+				.thenReturn(true).onErrorResume(e -> {
+					System.err.println(
+						"Errore durante la chiamata all'API di Webex per l'aggiunta degli invitati a un meet: "
+						+ e.getMessage());
+
+				    return Mono.error(e);
+				});
+		} else {
+			return Mono.just(true);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+		return Mono.error(e);
+	}
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Riga 3}: la richiesta viene eseguita solo se ci sono invitati da aggiungere. In caso contrario, viene restituito 
+    \texttt{true} e il controllo torna al service.
+
+    \item \textbf{Riga 4}: metodo di utilità per costruire il body della richiesta. 
+    \texttt{hostEmail} rappresenta l'email dell'account che crea tutti i meeting, 
+    mentre \texttt{items} è un array di JSON contenente le email degli invitati. È possibile specificare ulteriori attributi
+     per ogni invitato, ma in questo caso non è stato necessario.
+    \begin{lstlisting}[language=json,firstnumber=1]
+{
+    "meetingId":"abcde123456",
+    "hostEmail":"admin@tiscali.it",
+    "items":[
+        {
+            "email":"test@gmail.com"
+        },
+        {
+            "email":"popi@gmail.com"
+        }
+    ]
+}
+    \end{lstlisting}
+
+    \item \textbf{Righe 6-15}: viene chiamata l'API.
+\end{itemize}
+La modifica del meeting nel database prevede l'aggiornamento delle date di inizio e fine, 
+poiché gli invitati non vengono salvati nel database ma vengono recuperati direttamente da Webex ogni volta.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+    public static void modifyDatabaseMeet(MeetJPA repo, JsonNode evento) {
+		try {
+			Meet meet = repo.findMeetById(evento.get("id").asLong());
+
+			Timestamp dataInzio = 
+                Timestamp.valueOf(UtiltyMeet.transformUTCIntoRomeTimezone(evento.get("start").asText()));
+			Timestamp dataFine = 
+                Timestamp.valueOf(UtiltyMeet.transformUTCIntoRomeTimezone(evento.get("end").asText()));
+
+			meet.setDataInizio(dataInzio);
+			meet.setDataFine(dataFine);
+
+			repo.save(meet);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("Errore durante la modifica del meeting a database", e);
+		}
+	}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Riga 3}: ricerca dell'oggetto \texttt{Meet} nel database utilizzando il suo ID.
+    \item \textbf{Righe 5-8}: calcolo dei \texttt{Timestamp} nel fuso orario di Roma.
+    \item \textbf{Righe 10-11}: aggiornamento delle date di inizio e fine dell'oggetto \texttt{Meet}.
+    \item \textbf{Riga 13}: salvataggio della modifica nel database.
+\end{itemize}

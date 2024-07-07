@@ -1,0 +1,43 @@
+\subsubsection{Service}
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+public Mono<Boolean> modifyMeet(ObjectNode obj) {
+    try {
+        JsonNode evento = obj.get("evento");
+        
+        JsonNode invitati = obj.get("invitati");    
+        List<String> invitatiList = new ArrayList<>();
+        if (invitati != null && invitati.isArray()) {
+            for (JsonNode invitato : invitati) {
+                invitatiList.add(invitato.asText());
+            }
+        }
+
+        return modifyWebexMeet(webexAPI, evento, invitatiList).flatMap(success -> {
+            if (success) {
+                ModifyMeeting.modifyDatabaseMeet(repo, evento);
+                return Mono.just(true);
+            } else {
+                return Mono.just(false);
+            }
+        }).doOnError(error -> {
+            System.err.println(
+                "Errore durante la modifica del meeting su Webex: " + error.getMessage());
+        }).onErrorReturn(false);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        return Mono.just(false);
+    }
+}
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Righe 5-11}: viene estratto dal body della richiesta l'oggetto \textit{invitati}, 
+    contenente le email degli invitati da aggiungere al meeting. Questo viene successivamente convertito in un array di stringhe.
+    
+    \item \textbf{Riga 13}:  viene invocato il metodo \texttt{modifyWebexMeet}, che si trova anch'esso nel Service. 
+    Questo metodo gestisce la logica necessaria per effettuare le due chiamate API a Webex: una per aggiornare 
+    l'orario e l'altra per aggiungere gli invitati.
+
+    \item \textbf{Riga 15}: se entrambe le chiamate a Webex hanno esito positivo, 
+    viene chiamato il metodo per aggiornare l'orario del meeting nel database.
+\end{itemize}
