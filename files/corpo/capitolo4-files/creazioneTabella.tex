@@ -10,8 +10,9 @@ univoco assegnato da Webex al momento della creazione del meeting. Inoltre, per 
 viene salvato anche il link del meeting, generato anch'esso al momento della creazione.
 \\
 \\
-Viene riportata di seguito la query con cui è stata generata la tabella:
-\begin{lstlisting}[language=SQL, frame=lines]
+Viene riportata di seguito la query \ref{lst:creazione_tabella} con cui è stata generata la tabella,
+e un esempio di questa a database \ref{tbl:esempio_tabella_database}:
+\begin{lstlisting}[language=SQL, frame=lines, caption={query creazione tabella}, label={lst:creazione_tabella}]
 CREATE TABLE meet (
     id BIGSERIAL PRIMARY KEY,
     data_inizio TIMESTAMP NOT NULL,
@@ -24,7 +25,6 @@ CREATE TABLE meet (
     FOREIGN KEY (id_azienda) REFERENCES aziende(id_azienda)
 );
 \end{lstlisting}
-\vspace{20pt}
 \begin{table}[ht]
     \centering
     \begin{adjustbox}{width=13cm, center}
@@ -40,6 +40,7 @@ CREATE TABLE meet (
     \end{tabular}
     \end{adjustbox}
     \caption{Tabella a database di esempio}
+    \label{tbl:esempio_tabella_database}
 \end{table}
 \textit{Nota: i timestamp a database vengono automaticamente visualizzati in un formato leggibile da un umano.}
 \\
@@ -69,6 +70,7 @@ Segue una descrizione dettagliata delle colonne:
             Questo campo è una chiave esterna che fa riferimento alla colonna \texttt{id_utente} della tabella \texttt{utente}. 
             Non può essere nullo.
         \end{itemize}
+\clearpage
     \item \textbf{id_azienda}:
         \begin{itemize}
             \item \textbf{Tipo}: BIGINT
@@ -89,8 +91,9 @@ Segue una descrizione dettagliata delle colonne:
         \end{itemize}
 \end{enumerate}
 \vspace{20pt}
-Dato l'utilizzo di \textbf{JPA}, si è resa necessaria la mappatura della tabella a backend:
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Dato l'utilizzo di \textbf{JPA}, si è resa necessaria la mappatura della tabella a backend \ref{JPA_tabella}:
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    label={JPA_tabella}, caption={mappatura della tabella a backend}]
 @Entity
 @Table(name = "meet")
 @Data
@@ -123,15 +126,15 @@ public class Meet {
 \end{lstlisting}
 Segue una breve spiegazione del codice:
 \begin{itemize}
-    \item \textbf{@Entity}: indica che questa classe è un'entità JPA, mappata a una tabella del database.
-    \item \textbf{@Table(name = "meet")}: specifica il nome della tabella a database  a cui è mappata questa entità.
-    \item \textbf{@Data}: un'annotazione di Lombock che genera automaticamente getter, setter, toString, equals, e hashCode per la classe.
-    \item \textbf{@Id}: definisce il campo id come la chiave primaria della tabella.
-    \item \textbf{@GeneratedValue(strategy = GenerationType.IDENTITY)}: delega al database la generazione dei valori della chiave primaria.
-    \item \textbf{@Column(name="", nullable=false)}:  definisce il nome della colonna nel database e imposta che il valore del campo non può essere NULL.
-    \item \textbf{@ManyToOne}: indica una relazione molti-a-uno, dove ogni Meet è associato a un singolo Utente e una singola Azienda,
+    \item \textbf{Riga 1}: indica che questa classe è un'entità JPA, mappata a una tabella del database.
+    \item \textbf{Riga 2}: specifica il nome della tabella a database  a cui è mappata questa entità.
+    \item \textbf{Riga 3}: un'annotazione di Lombock che genera automaticamente getter, setter, toString, equals, e hashCode per la classe.
+    \item \textbf{Riga 5}: definisce il campo id come la chiave primaria della tabella.
+    \item \textbf{Riga 6}: delega al database la generazione dei valori della chiave primaria.
+    \item \textbf{Riga 7}:  definisce il nome della colonna nel database e imposta che il valore del campo non può essere NULL.
+    \item \textbf{Righe 16 e 20}: indica una relazione molti-a-uno, dove ogni Meet è associato a un singolo Utente e una singola Azienda,
     ma ogni Utente e Azienda possono essere associati a più Meet.
-    \item \textbf{@JoinColumn(name = "", referencedColumnName = "", nullable = false)}:  specifica la colonna da utilizzare per la join 
+    \item \textbf{Righe 17 e 21}:  specifica la colonna da utilizzare per la join 
     con un'altra entità, definendo il nome della colonna locale e la colonna di riferimento dell'altra entità.
 \end{itemize}
 Il tipo e il nome definiti sotto ogni annotazione \textbf{@Column} sono quelli utilizzati per gestire l'entità. 

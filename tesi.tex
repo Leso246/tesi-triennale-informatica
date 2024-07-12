@@ -17,6 +17,7 @@
 \usepackage[italian]{babel} % imposta la lingua italiana
 \usepackage{underscore} % permette di usare gli underscore senza che vengano riconosciuti come caratteri speciali
 \setcounter{tocdepth}{4} % permette di visualizzare le subsubsection nell'indice
+\usepackage{chngcntr}
 
 % Per generare la bibliografia
 \usepackage[
@@ -30,8 +31,28 @@ sorting=none
 \lstset{
     showspaces=false, % non mostrare gli spazi come simboli
     showstringspaces=false, % non mostrare gli spazi all'interno di stringhe
-    showtabs=false % non mostrare le tabulazioni come simboli
+    showtabs=false, % non mostrare le tabulazioni come simboli
+    frame=lines, % aggiunge una cornice
+    aboveskip=3mm,
+    belowskip=3mm,
+    numbers=left, % aggiunge i numeri di linea a sinistra
+    numberstyle=\tiny\color{gray}, % stile dei numeri di linea
+    stepnumber=1,
+    numbersep=5pt,
+    basicstyle=\ttfamily\scriptsize, % stile del testo
+    keywordstyle=\color{blue}, % stile delle parole chiave
+    commentstyle=\color{dkgreen}, % stile dei commenti
+    stringstyle=\color{mauve}, % stile delle stringhe
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3,
+    captionpos=b, % posizione della didascalia
 }
+
+% Configura i contatori per le figure, le tabelle e i listing
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
 
 % Definisce i colori che si possono utilizzare
 \usepackage{xcolor} 
@@ -53,14 +74,9 @@ sorting=none
 % Definisce i colori per i json
 \lstdefinelanguage{json}{
     basicstyle=\ttfamily\scriptsize,
-    %numbers=left,
-    %numberstyle=\scriptsize,
-    %stepnumber=1,
-    %numbersep=8pt,
     showstringspaces=false,
     breaklines=true,
     frame=lines,
-    %backgroundcolor=\color{background},
     literate=
       {:}{{{\color{punct}{:}}}}{1}
       {,}{{{\color{punct}{,}}}}{1}
@@ -86,24 +102,6 @@ sorting=none
   morestring=[b]"
 }
 
-% Definisce i colori per Java
-\lstset{frame=tb,
-  language=Java,
-  aboveskip=3mm,
-  belowskip=3mm,
-  showstringspaces=false,
-  columns=flexible,
-  basicstyle={\small\ttfamily},
-  numbers=none,
-  numberstyle=\tiny\color{gray},
-  keywordstyle=\color{blue},
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
-  breaklines=true,
-  breakatwhitespace=true,
-  tabsize=3
-}
-
 \pagestyle{plain}
 
  % Numerazione delle prima pagina con i numeri romani
@@ -124,7 +122,7 @@ scientific documents}}
 
 \tableofcontents
 \listoffigures
-%\listoftables
+\listoftables
 %\printglossary
 \clearpage
 
@@ -134,8 +132,6 @@ scientific documents}}
  
 % File di introduzione
 \subfile{files/introduzione.tex}
-% Stato dell'arte
-%\subfile{files/stato_dell_arte.tex} 
 % Capitolo 1 - Tecnlogie Utilizzate
 \subfile{files/corpo/capitolo1.tex}
 % Capitolo 2 - Approccio proposto

@@ -1,5 +1,7 @@
 \subsubsection{Service}
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Di seguito viene riportato il codice del Service riguardante la creazione dei meeting \ref{service_creazione_meeting}: 
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+  label={service_creazione_meeting}, caption={service creazione meeting}]
 public Mono<Boolean> addMeet(ObjectNode obj) {
   try {
     Azienda azienda = aziendaService.trovaPerEmail(obj.get("azienda").asText());

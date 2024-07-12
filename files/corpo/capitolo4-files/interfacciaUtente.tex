@@ -6,7 +6,8 @@ In particolare, si è deciso di utilizzare \textit{FullCalendar} \cite{FullCalen
 una famosa libreria Javascript open source che si integra perfettamente con React.
 \\\\
 Grazie al \textbf{MUI Theme}, l'utente ha la possibilità di personalizzare i colori 
-principali del sito a proprio piacimento tramite una pratica interfaccia laterale:
+principali del sito a proprio piacimento tramite una pratica interfaccia laterale, mostrata nelle figure
+\ref{fig:tema_chiaro} e \ref{fig:tema_scuro}:
 \begin{figure}[H]
     \centering
     % Figura impostazioni tema - chiaro
@@ -14,6 +15,7 @@ principali del sito a proprio piacimento tramite una pratica interfaccia lateral
         \centering
         \includegraphics[width=\textwidth]{ThemeSettings/LightTheme.png}
         \caption{Tema chiaro}
+        \label{fig:tema_chiaro}
     \end{minipage}
     \hspace{0.05\textwidth}
     % Figura impostazioni tema - scuro
@@ -21,10 +23,12 @@ principali del sito a proprio piacimento tramite una pratica interfaccia lateral
         \centering
         \includegraphics[width=\textwidth]{ThemeSettings/DarkTheme.png}
         \caption{Tema scuro}
+        \label{fig:tema_scuro}
     \end{minipage}
 \end{figure}
 \clearpage
-\noindent Un esempio di visualizzazione della pagina utilizzando entrambi i temi:
+\noindent Nelle figure \ref{fig:visualizzazioneCalendario} e \ref{fig:visualizzazioneCalendario_scuro} 
+viene mostrato un esempio di visualizzazione della pagina utilizzando entrambi i temi:
 % Visualizzazione calendario mensile tema chiaro
 \begin{figure}[H]   
     \centering
@@ -37,10 +41,11 @@ principali del sito a proprio piacimento tramite una pratica interfaccia lateral
     \centering
     \includegraphics[width=\textwidth]{VisualizzazioneCalendario/DarkTheme.png}
     \caption{Visualizzazione Calendario - tema scuro}
+    \label{fig:visualizzazioneCalendario_scuro}
 \end{figure}
 \noindent Per far capire che un evento è concluso, viene mostrato con uno sfondo grigio.
-\noindent  Nel caso siano presenti più eventi in un giorno nella visualizzazione mensile 
-del calendario, è possibile utilizzare un pratico popup per avere una visione migliore:
+\noindent  Nel caso siano presenti più eventi in un giorno \ref{altriMeet} nella visualizzazione mensile 
+del calendario, è possibile utilizzare un pratico popup per avere una visione migliore \ref{popupAltriMeet}:
 \begin{figure}[H]
     \centering
     % Figura impostazioni tema - chiaro
@@ -48,6 +53,7 @@ del calendario, è possibile utilizzare un pratico popup per avere una visione m
         \centering
         \includegraphics[width=0.5\textwidth]{VisualizzazioneCalendario/+Meet.png}
         \caption{+ altri meet}
+        \label{altriMeet}
     \end{minipage}
     \hspace{0.05\textwidth}
     % Figura impostazioni tema - scuro
@@ -55,18 +61,22 @@ del calendario, è possibile utilizzare un pratico popup per avere una visione m
         \centering
         \includegraphics[width=\textwidth]{VisualizzazioneCalendario/popup+MeetDark.png}
         \caption{popup meet}
+        \label{popupAltriMeet}
     \end{minipage}
 \end{figure}
 \clearpage
-\noindent È anche disponibile una visualizzazione settimanale e giornaliera:
+\noindent È anche disponibile una visualizzazione settimanale \ref{visualizzazioneSettimanale} 
+e giornaliera \ref{visualizzazioneGiornaliera}:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{VisualizzazioneCalendario/VisualizzazioneSettimana.png}
     \caption{Visualizzazione Settimanale - tema scuro}
+    \label{visualizzazioneSettimanale}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{VisualizzazioneCalendario/VisualizzazioneGiorno.png}
     \caption{Visualizzazione Giornaliera - tema scuro}
+    \label{visualizzazioneGiornaliera}
 \end{figure}
 \noindent In seguito si entrerà nel dettaglio dei restanti elementi dell'interfaccia utente.

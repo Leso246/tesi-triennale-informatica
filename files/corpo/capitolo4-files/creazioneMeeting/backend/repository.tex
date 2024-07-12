@@ -1,6 +1,7 @@
 \subsubsection{Repository}
-Metodo per creare il meet su Webex:
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Di seguito viene riportato il codice del metetodo per creare il meet su Webex \ref{repository_creazione_meeting}:
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left,
+    label={repository_creazione_meeting}, caption={repository creazione meeting - Webex}]
 public static Mono<JsonNode> addWebexMeet(
     WebClient webexAPI, 
     ObjectNode obj, 
@@ -31,8 +32,8 @@ public static Mono<JsonNode> addWebexMeet(
 \end{lstlisting}
 \begin{itemize}
     \item \textbf{Riga 7}: \texttt{createAddWebexMeetBody} è un metodo di utilità che permette di creare il body
-    della richiesta per l'API di Webex. Esempio:
-    \begin{lstlisting}[language=json,firstnumber=1]
+    della richiesta per l'API di Webex. Esempio \ref{body_creazione:_meeting_webex}:
+    \begin{lstlisting}[language=json, caption={body creazione meeting - Webex}, label={body_creazione:_meeting_webex}]
 {
     "title": "Riunione tra Mario e Tech SPA",
     "start": "2024-06-25T16:00:00",
@@ -59,19 +60,19 @@ public static Mono<JsonNode> addWebexMeet(
 }
     \end{lstlisting}
     \begin{itemize}
-        \item \textbf{title}: titolo della riunione.
-        \item \textbf{start}: data e ora d'inizio della riunione, formattata secondo lo standard ISO 8601.
-        \item \textbf{end}: data e ora di fine della riunionw, formattata secondo lo standard ISO 8601.
-        \item \textbf{invitees}: lista degli invitati alla riunione. Webex invierà una mail agli indirizzi specificati, il nome
+        \item \textbf{Riga 2}: titolo della riunione.
+        \item \textbf{Riga 3}: data e ora d'inizio della riunione, formattata secondo lo standard ISO 8601.
+        \item \textbf{Riga 4}: data e ora di fine della riunionw, formattata secondo lo standard ISO 8601.
+        \item \textbf{Righe 5-16}: lista degli invitati alla riunione. Webex invierà una mail agli indirizzi specificati, il nome
         visualizzato è il valore contenuto in \texttt{displayName}.
-        \item \textbf{timezone}: il fuso orario in cui si terrà il meet.
-        \item \textbf{enabledJoinBeforeHost}: permette ai partecipanti di unirsi alla riunione anche senza la presenza dell'host. 
+        \item \textbf{Riga 17}: il fuso orario in cui si terrà il meet.
+        \item \textbf{Riga 18}: permette ai partecipanti di unirsi alla riunione anche senza la presenza dell'host. 
         Questo attributo è fondamentale poiché l'azienda è l'organizzatrice di tutti i meeting ma non parteciperà a nessuno di essi.
-        \item \textbf{enableConnectAudioBeforeHost}: permette ai partecipanti di utilizzare l'audio anche in assenza dell'host.
-        \item \textbf{joinBeforeHostMinutes}: indica quanti minuti rispetto alla data di inizio della riunione i partecipanti possono unirsi anche senza la presenza dell'host.
-        \item \textbf{scheduledType}: indica il tipo di riunione, in questo caso è un meeting.
-        \item \textbf{enableAutomaticLock}: dopo un certo periodo di tempo, nessuno può partecipare al meeting senza essere accettato dall'host.
-        \item \textbf{automaticLockMinutes}: indica il periodo di tempo dopo il quale la riunione verrà automaticamente bloccata. 
+        \item \textbf{Riga 19}: permette ai partecipanti di utilizzare l'audio anche in assenza dell'host.
+        \item \textbf{Riga 20}: indica quanti minuti rispetto alla data di inizio della riunione i partecipanti possono unirsi anche senza la presenza dell'host.
+        \item \textbf{Riga 21}: indica il tipo di riunione, in questo caso è un meeting.
+        \item \textbf{Riga 22}: dopo un certo periodo di tempo, nessuno può partecipare al meeting senza essere accettato dall'host.
+        \item \textbf{Riga 23}: indica il periodo di tempo dopo il quale la riunione verrà automaticamente bloccata. 
         Questo valore è calcolato come la differenza tra \texttt{end} e \texttt{start}, in modo che, dopo la data di fine prefissata, 
         nessuno possa più partecipare.
     \end{itemize}
@@ -83,8 +84,9 @@ public static Mono<JsonNode> addWebexMeet(
     \item \textbf{Righe 20-21}: se la richiesta è andata a buon fine, viene restituito come risposta il JSON fornito dall'API di Webex.
     
 \end{itemize}
-Metodo per creare il meet a database:
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Di seguito viene riportato il codice del metetodo per creare il meet a database \ref{repository_creazione_meeting_database}:
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    label={repository_creazione_meeting_database}, caption={repository creazione meeting - Database}]
 public static void addMeetToDatabase(
     ObjectNode obj, 
     Azienda azienda, 
@@ -97,8 +99,10 @@ public static void addMeetToDatabase(
     
     Meet meet = new Meet();
   
-    Timestamp dataInizio = Timestamp.valueOf(UtiltyMeet.transformUTCIntoRomeTimezone(obj.get("data_inizio").asText()));
-    Timestamp dataFine = Timestamp.valueOf(UtiltyMeet.transformUTCIntoRomeTimezone(obj.get("data_fine").asText()));
+    Timestamp dataInizio = Timestamp.valueOf(
+        UtiltyMeet.transformUTCIntoRomeTimezone(obj.get("data_inizio").asText()));
+    Timestamp dataFine = Timestamp.valueOf(
+        UtiltyMeet.transformUTCIntoRomeTimezone(obj.get("data_fine").asText()));
 
     meet.setDataInizio(dataInizio);
     meet.setDataFine(dataFine);

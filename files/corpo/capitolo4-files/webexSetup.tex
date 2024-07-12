@@ -21,7 +21,7 @@ preliminari per ottenere un \textbf{access token}, che verrà utilizzato per aut
         \end{itemize}
  
     \item \textbf{Richiesta di un account sandbox}: per effettuare test senza limitazioni durante lo sviluppo,
-    è necessario richiedere un account Sandbox tramite il proprio account creato in precedenza. Una volta ottenute
+    è necessario richiedere un account Sandbox tramite l'account creato in precedenza. Una volta ottenute
     le credenziali, si può usufruire di questo account speciale per accedere come amministratore di un'organizzazione 
     e gestire tutti i meeting e le relative impostazioni attraverso una comoda interfaccia, 
     \href{https://admin.webex.com/login}{Webex Control Hub}.
@@ -30,8 +30,8 @@ preliminari per ottenere un \textbf{access token}, che verrà utilizzato per aut
     \item \textbf{Recupero dell'access token}: l'ultimo passaggio è stato ottenere l'access token 
     necessario per autenticare le chiamate alle API.
     Bisogna effettuare una richiesta POST all'API
-    \texttt{https://webexapis.com/v1/access\_token} con il seguente body:
-    \begin{lstlisting}[language=json,firstnumber=1]
+    \texttt{https://webexapis.com/v1/access\_token} con il seguente body \ref{lst:body_access_token}:
+    \begin{lstlisting}[language=json, label={lst:body_access_token}, caption={body access token}]
 {
     "grant_type": "authorization_code",
     "client_id": "1234567890abcdef123456",
