@@ -1,5 +1,7 @@
 \subsubsection{Controller}
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Di seguito viene riportato il codice del Controller riguardante il recupero dei meeting \ref{controller_recupero_meeting}: 
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+  caption={controller recupero meeting}, label={controller_recupero_meeting}]
 @GetMapping(value = "/getMeet")
 public ResponseEntity<?> getMeeting(@RequestParam("jwtToken") String jwtToken) {
   try {

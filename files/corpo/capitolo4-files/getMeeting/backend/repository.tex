@@ -1,5 +1,7 @@
 \subsubsection{Repository}
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Di seguito viene riportato il codice del Repository riguardante il recupero dei meeting \ref{repository_recupero_meeting}: 
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    label={repository_recupero_meeting}, caption={repository recupero meeting}]
 @Repository
 public interface MeetJPA extends JpaRepository<Meet, Long> {
     public Meet findMeetById(Long id);
@@ -40,10 +42,11 @@ public interface MeetJPA extends JpaRepository<Meet, Long> {
     \item \textbf{Righe 4-26}: queste due query personalizzate recuperano tutti i meet associati all'ID dell'utente, sono un esempio di utilizzo
     del linguaggio \textbf{JPQL}. 
 \end{itemize}
-È interessante notare l'uso della sintassi \texttt{new dto.MeetDTO} nelle query JPQL: è stato necessario creare una classe \texttt{MeetDTO} in quanto, 
-se si fosse recuperata l'intera istanza di \texttt{Meet}, il database avrebbe restituito come attributi di \texttt{utente} e di \texttt{azienda} le 
-due istanze nella loro interezza, al posto dei due soli nomi, che sono invece di nostro interesse. Ovviamente ciò avrebbe fatto sorgere un 
-problema di sicurezza, in quanto sarebbero stati restituiti a frontend dati sensibili riguardo le due utenze.
+È interessante notare l'uso della sintassi \texttt{new dto.MeetDTO} nelle query JPQL: è stato necessario creare una classe \texttt{MeetDTO} 
+\ref{classe_meetDTO} in quanto, se si fosse recuperata l'intera istanza di \texttt{Meet}, il database avrebbe restituito come attributi 
+di \texttt{utente} e di \texttt{azienda} le due istanze nella loro interezza, al posto dei due soli nomi, che sono invece di nostro interesse. 
+Ovviamente ciò avrebbe fatto sorgere un problema di sicurezza, in quanto sarebbero stati restituiti a frontend 
+dati sensibili riguardo le due utenze.
 \\
 \\
 DTO, acronimo di Data Transfer Object, rappresenta un oggetto progettato appositamente per trasferire dati tra processi 
@@ -51,7 +54,8 @@ all'interno di un sistema, in questo caso tra il database e il backend \cite{Dat
 solo i campi pertinenti da \texttt{Meet} necessari per l'interesse dell'applicazione, escludendo informazioni non richieste e sensibili.
 Questo approccio non solo migliora le prestazioni dell'applicazione evitando il trasporto di dati non necessari, 
 ma anche rafforza la sicurezza limitando l'esposizione di informazioni sensibili.
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    label={classe_meetDTO}, caption={Classe MeetDTO}]
 @Data
 @NoArgsConstructor
 public class MeetDTO {

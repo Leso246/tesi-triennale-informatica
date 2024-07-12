@@ -1,6 +1,7 @@
 \subsection{Frontend}
-Ogni volta che la pagina viene caricata, viene chiamato uno \texttt{useEffect}.
-\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Ogni volta che la pagina viene caricata, viene chiamato uno \texttt{useEffect} \ref{useEffect_chiamato_al_caricamento_della_pagina}.
+\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left,
+    caption={useEffect chiamato al caricamento della pagina}, label={useEffect_chiamato_al_caricamento_della_pagina}]
 useEffect(() => {
     const jwtToken = TokenAuth.getTokenAuth();
     
@@ -20,10 +21,11 @@ useEffect(() => {
     \item \textbf{Riga 2}: viene recuperato il \texttt{jwtToken} dell'utente. Abbreviazione di \textbf{JSON Web Token}, 
     il \texttt{jwtToken} è uno standard (RFC 7519) per trasmettere in modo sicuro dei dati sotto forma di oggeto JSON. \cite{jwtToken}
     Viene generato quando l'utente effettua il login e contiene informazioni utili riguardo a esso.
-    \item \textbf{Righe 4-11}: viene definita la funzione \texttt{getMeet} che chiama il backend per il recupero degli eventi 
+    \item \textbf{Righe 4-11}: viene definita la funzione \texttt{getMeet} che chiama il backend per il recupero degli eventi \ref{api_recupero_eventi_frontend}
         \begin{itemize}
             \item \textbf{API}:
-            \begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+            \begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+                label={api_recupero_eventi_frontend}, caption={API definita a frontend per il recupero degli eventi}]
 const api_url =
   import.meta.env.MODE === 'development'
     ? import.meta.env.VITE_API_GESTUT_URL_DEV
@@ -39,8 +41,8 @@ export const ritornaMeeting = (jwtToken: string) => {
         \end{itemize}
 
     \item \textbf{Riga 7}: \texttt{setEvents} è uno \texttt{useState}.  In questo caso è usato per impostare gli eventi 
-    di \texttt{Fullcalendar} in modo da poterli visualizzare. \texttt{Fullcalendar} accetta un array di eventi così formattati:
-\begin{lstlisting}[language=json,firstnumber=1]
+    di \texttt{Fullcalendar} in modo da poterli visualizzare. \texttt{Fullcalendar} accetta un array di eventi così formattati \ref{formattazione_eventi_fullcalendar}:
+\begin{lstlisting}[language=json, label={formattazione_eventi_fullcalendar}, caption={formattazione eventi FullCalendar}]
 [
     {
         "id": 50,
@@ -58,10 +60,10 @@ export const ritornaMeeting = (jwtToken: string) => {
 ]               
 \end{lstlisting}
     \begin{itemize}
-        \item \textbf{editable} ed \textbf{eventStartEditable}: sono attributi degli eventi di \texttt{Fullcalendar}
+        \item \textbf{Riga 6} e \textbf{Riga 7}: sono attributi degli eventi di \texttt{Fullcalendar}
         che permettono di trascinare un evento sul calendario per modificarne la data e/o l'ora. Questo comportamento verrà
         discusso nella sezione dedicata alla modifica dei meeting.
-        \item \textbf{extendedProps}: in questo JSON è possibile inserire tutte le coppie di chiave-valore che risultano
+        \item \textbf{Righe 8-13}: in questo JSON è possibile inserire tutte le coppie di chiave-valore che risultano
         utili allo sviluppo. In questo caso, di particolare importanza sono il \texttt{link} del meeting e il suo \texttt{webexId}.
     \end{itemize}
 
@@ -75,48 +77,53 @@ Una volta che gli eventi sono stati caricati correttamente, vengono visualizzati
 \\
 Quando si clicca su un evento, viene visualizzato un \texttt{Dialog} contenente i dettagli 
 del meet recuperati dalla funzione \texttt{getMeet}.
-Questo \texttt{Dialog} cambia a seconda che l'utente loggato sia un candidato o un'azienda, sfruttando 
-la renderizzazione condizionale di React. \cite{reactConditionalRendering}
+Questo \texttt{Dialog} cambia a seconda che l'utente loggato sia un candidato \ref{visualizzazione_candidato_evento_non_iniziato} 
+o un'azienda \ref{visualizzazione_azienda_evento_non_iniziato}, sfruttando la renderizzazione condizionale di React. 
+\cite{reactConditionalRendering}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{DettagliMeet/DettagliMeetUtente.png}
     \caption{Visualizzazione candidato - evento non iniziato}
+    \label{visualizzazione_candidato_evento_non_iniziato}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{DettagliMeet/DettagliMeetAziendaDark.png}
     \caption{Visualizzazione azienda - evento non iniziato}
+    \label{visualizzazione_azienda_evento_non_iniziato}
 \end{figure}
-\clearpage
 \noindent Quando mancano meno di 10 minuti all'inizio del meet, il pulsante per partecipare 
-al meet viene abilitato. Cliccandoci, si viene reinderizzati al meet su Webex.
+al meet viene abilitato, come mostrato in figura \ref{visualizzazione_azienda_evento_iniziato}. 
+Cliccandoci, si viene reinderizzati al meet su Webex.
 In questo stato, l'evento non è più modificabile né eliminabile.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{DettagliMeet/VaiAlMeet.png}
     \caption{Visualizzazione azienda - evento iniziato}
+    \label{visualizzazione_azienda_evento_iniziato}
 \end{figure}
 \noindent Se l'evento è già concluso, è comunque possibile visualizzarne i dettagli 
-per avere uno storico dell'incontro. In questo caso, non è possibile effettuare 
-nessun'altra operazione sul meet.
+per avere uno storico dell'incontro, come mostrato in figura \ref{visualizzazione_azienda_evento_concluso}. 
+In questo caso, non è possibile effettuare nessun'altra operazione sul meet.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{DettagliMeet/EventoConcluso.png}
     \caption{Visualizzazione azienda - evento concluso}
+    \label{visualizzazione_azienda_evento_concluso}
 \end{figure}
 \noindent La logica per abilitare/disabilitare i pulsanti è gestita interamente a frontend 
-attraverso l'utilizzo di uno \texttt{useEffect}: ogni volta che un evento viene selezionato
+attraverso l'utilizzo di uno \texttt{useEffect} \ref{useEffect_per_la_logica_dei_pulsanti}: ogni volta che un evento viene selezionato
 e viene aperto il relativo \texttt{Dialog}, il sistema verifica la data attuale 
 rispetto alla data di inizio e di fine del meeting. Questo controllo determina se mancano più di 10 
 minuti all'inizio del meeting, se il meeting è già iniziato o se è concluso. Sulla base di questi valori, 
 i pulsanti vengono abilitati o disabilitati di conseguenza.
 \\ 
 \\
-È importante notare che al momento della creazione del meeting, 
-l'orario di accesso per gli utenti è impostato 15 minuti prima della data di inizio. 
-Questo permette di abilitare il pulsante "Vai al meet" in modo che gli utenti possano accedere 
-direttamente senza attese o conferme.
-\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+È importante notare che durante la creazione del meeting, l'orario di accesso degli utenti è impostato 15 minuti 
+prima della data di inizio effettiva. Questa impostazione consente agli utenti di accedere direttamente al meeting 
+senza attese o conferme, in quanto il pulsante "Vai al meet" viene abilitato 10 minuti prima dell'inizio programmato.
+\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    label={useEffect_per_la_logica_dei_pulsanti}, caption={useEffect per la logica dei pulsanti}]
 useEffect(() => {
     if (!selectedEvent) return;
       
@@ -138,19 +145,19 @@ useEffect(() => {
 Per quanto riguarda gli invitati a un meet, questi sono visualizzabili \textbf{solo} dall'azienda. 
 Poiché non vengono salvati nel database, è necessario fare una chiamata all'API di Webex per recuperarli.
 Considerato troppo oneroso effettuare una chiamata per ogni singolo meet durante il caricamento della 
-pagina, l'API \texttt{/getMeetInvitees} viene chiamata ogni 
+pagina, l'API \texttt{getMeetInvitees} \ref{getMeetInvitees} viene chiamata ogni 
 volta che si clicca su un evento. Sono stati effettuati 30 test e il tempo di risposta medio è 
 risultato essere di 863 ms, motivo per cui questa soluzione è stata ritenuta adeguata. 
 Prima che gli invitati vengano caricati, viene visualizzata 
 una semplice scritta \textit{"Caricamento..."} di fianco alla dicitura \textit{"Lista degli invitati:"}
 del \texttt{Dialog}.
 
-
-\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    label={getMeetInvitees}, caption={chiamata all'api getMeetInvitees effettuata se l'utente è un'azienda}]
 const handleEventClick = async (arg: any) => {
     setInvitees([]); // Resetta l'array di invitati
     setSelectedEvent(arg.event);
-    setOpen(true); // Apre il Dialog 
+    setOpen(true);
     if (isAzienda) {
         const payload = {
         id: arg.event.id,

@@ -3,7 +3,6 @@ Il recupero dei meeting nel backend viene gestita tramite una chiamata
 GET all'API \texttt{\//getMeet} con il parametro \texttt{jwtToken}.
 % File del controller
 \subfile{backend/controller.tex}
-\clearpage
 % File del service
 \subfile{backend/service.tex}
 % File del Repository
@@ -16,10 +15,11 @@ a frontend, verrebbe meno l'obiettivo prefissato, ovvero non consentire alle azi
 al di fuori della piattaforma, almeno fino al primo colloquio. Per risolvere questo problema, una volta 
 ottenuto l'array contenente le mail degli invitati dall'API \texttt{https://webexapis.com/v1/meetingInvitees/?meetingId=} di Webex, 
 viene recuperata l'istanza \texttt{Utente} del candidato associato al \texttt{Meet} grazie al metodo \texttt{findMeetById}, 
-successivamente la mail del candidato viene sostituita con il suo nome utente.
+successivamente la mail del candidato viene sostituita con il suo nome utente \ref{sostituzione_email_utente}.
 Si vuole far notare che la mail dell'utente è obbligatoriamente presente, poiché è stata utilizzata per creare il meeting.
 Se così non fosse, la creazione del meeting non sarebbe andata a buon fine.
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+	caption={sostituzione email utente}, label={sostituzione_email_utente}]
 private static ArrayList<String> removeRisumaUserEmail(
   ObjectNode obj, 
   MeetJPA repo, 
