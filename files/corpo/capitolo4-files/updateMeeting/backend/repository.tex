@@ -102,9 +102,11 @@ Gli invitati non vengono salvati nel database ma vengono recuperati direttamente
 			Meet meet = repo.findMeetById(evento.get("id").asLong());
 
 			Timestamp dataInzio = 
-                Timestamp.valueOf(UtiltyMeet.transformUTCIntoRomeTimezone(evento.get("start").asText()));
+                Timestamp.valueOf(
+					UtiltyMeet.transformUTCIntoRomeTimezone(evento.get("start").asText()));
 			Timestamp dataFine = 
-                Timestamp.valueOf(UtiltyMeet.transformUTCIntoRomeTimezone(evento.get("end").asText()));
+                Timestamp.valueOf(
+					UtiltyMeet.transformUTCIntoRomeTimezone(evento.get("end").asText()));
 
 			meet.setDataInizio(dataInzio);
 			meet.setDataFine(dataFine);
@@ -119,7 +121,7 @@ Gli invitati non vengono salvati nel database ma vengono recuperati direttamente
 \end{lstlisting}
 \begin{itemize}
     \item \textbf{Riga 3}: ricerca dell'oggetto \texttt{Meet} nel database utilizzando il suo ID.
-    \item \textbf{Righe 5-8}: calcolo dei \texttt{Timestamp} nel fuso orario di Roma.
-    \item \textbf{Righe 10-11}: aggiornamento delle date di inizio e fine dell'oggetto \texttt{Meet}.
-    \item \textbf{Riga 13}: salvataggio della modifica nel database.
+    \item \textbf{Righe 5-10}: calcolo dei \texttt{Timestamp} nel fuso orario di Roma.
+    \item \textbf{Righe 12-13}: aggiornamento delle date di inizio e fine dell'oggetto \texttt{Meet}.
+    \item \textbf{Riga 15}: salvataggio della modifica nel database.
 \end{itemize}

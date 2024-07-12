@@ -20,36 +20,22 @@ e integrato con gli strumenti già utilizzati dagli utenti nella loro vita quoti
 \begin{wrapfigure}{l}{0.45\textwidth}
     \centering
     \includegraphics[width=0.45\textwidth]{Mobile/visualizzazioneCalendario.png} 
+    \caption{visualizzazione calendario - mobile}
+    \label{visualizzazione_calendario_mobile}
 \end{wrapfigure}
 \\
 L'adattamento della pagina del sito alla visualizzazione mobile è fondamentale per garantire un'esperienza 
-utente ottimale su tutti i dispositivi. In particolare, la visualizzazione del calendario richiede una 
+utente ottimale su tutti i dispositivi. In particolare, la visualizzazione del calendario \ref{visualizzazione_calendario_mobile} richiede una 
 riprogettazione completa della barra di controllo superiore, magari introducendo una dropdown list per 
 la scelta della visualizzazione e ridisponendo completamente le scritte e i pulsanti per muoversi nel calendario. 
 Sarebbe utile implementare la funzionalità di swipe per passare da un mese all'altro senza dover necessariamente 
 cliccare sui bottoni. Anche la visualizzazione del calendario deve essere ripensata per utilizzare meglio lo spazio verticale, 
 estendendolo sia in altezza che in larghezza.
-% \begin{figure}[H]
-%     \centering
-%     \parbox[t]{0.45\textwidth}{
-%         \includegraphics[width=\textwidth]{Mobile/visualizzazioneCalendario.png}
-%         \caption{Calendario - mobile}
-%     }\hfill
-%     \parbox[t]{0.5\textwidth}{
-%         \vspace{0pt} % Rimuove eventuali margini superiori
-%         L'adattamento della pagina del sito alla visualizzazione mobile è fondamentale per garantire un'esperienza 
-%         utente ottimale su tutti i dispositivi. In particolare, la visualizzazione del calendario richiede una 
-%         riprogettazione completa della barra di controllo superiore, magari introducendo una dropdown list per 
-%         la scelta della visualizzazione e ridisponendo completamente le scritte e i pulsanti per muoversi nel calendario. 
-%         Sarebbe utile implementare la funzionalità di swipe per passare da un mese all'altro senza dover necessariamente 
-%         cliccare sui bottoni. Anche la visualizzazione del calendario deve essere ripensata per utilizzare meglio lo spazio verticale, 
-%         estendendolo sia in altezza che in larghezza.
-%     }
-% \end{figure}
-
 \clearpage
 % Sezione dedicata ai popup
-\noindent I due \texttt{Dialog} per i dettagli e la modifica di un evento si adattano già abbastanza bene a una 
+\noindent I due \texttt{Dialog} per i dettagli e la modifica di un evento, riportati nelle figure 
+\ref{dettagli_meet_mobile} e \ref{modifica_meet_mobile},
+si adattano già abbastanza bene a una 
 visualizzazione da smartphone, ma si potrebbe sfruttare meglio lo spazio verticale aumentando lo spazio tra i vari 
 componenti per rendere l'interfaccia ancora più pulita e godibile. 
 \begin{figure}[H]
@@ -57,30 +43,35 @@ componenti per rendere l'interfaccia ancora più pulita e godibile.
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Mobile/popUpEvento.png}
-        \caption{Dettagli meet - mobile}
+        \caption{dettagli meet - mobile}
+        \label{dettagli_meet_mobile}
     \end{minipage}
     \hspace{0.05\textwidth}
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Mobile/popupModificaEvento.png}
-        \caption{Modifica meet - mobile}
+        \caption{modifica meet - mobile}
+        \label{modifica_meet_mobile}
     \end{minipage}
 \end{figure}
 \clearpage
 % Sezione dedicata al picker di data e ora
 \noindent Il \texttt{DateTimePicker} cambia automaticamente il tipo di visualizzazione in base al dispositivo utilizzato, 
-il che elimina la necessità di ulteriori modifiche per questa specifica funzionalità. 
+il che elimina la necessità di ulteriori modifiche per questa specifica funzionalità. Viene riportato un esempio
+nelle figure \ref{seleziona_data_mobile} e \ref{seleziona_ora_mobile}.
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Mobile/selezionaData.png}
-        \caption{Seleziona data - mobile}
+        \caption{seleziona data - mobile}
+        \label{seleziona_data_mobile}
     \end{minipage}
     \hspace{0.05\textwidth}
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{Mobile/selezionaOra.png}
-        \caption{Seleziona ora - mobile}
+        \caption{seleziona ora - mobile}
+        \label{seleziona_ora_mobile}
     \end{minipage}
 \end{figure}

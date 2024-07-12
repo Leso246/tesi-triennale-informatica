@@ -1,20 +1,23 @@
 \subsection{Frontend}
-Per eliminare un meeting, è necessario aprire il relativo \texttt{Dialog} per visualizzarne i dettagli. 
+Per eliminare un meeting, è necessario aprire il relativo \texttt{Dialog} \ref{eliminazion_meet_hover} per visualizzarne i dettagli. 
 A questo punto, è presente il pulsante \textit{elimina}. 
 L'immagine seguente mostra il pulsante quando vi si passa sopra con il mouse.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{EliminaMeet/hoverEliminaMeet.png}
-    \caption{Eliminazion meet - hover}
+    \caption{eliminazion meet - hover}
+    \label{eliminazion_meet_hover}
 \end{figure}
-\noindent Se si clicca sul pulsante, viene visualizzato un popup di conferma:
+\noindent Se si clicca sul pulsante, viene visualizzato un popup di conferma \ref{eliminazion_meet_popup_di_conferma}:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{EliminaMeet/popupConfermaEliminazione.png}
-    \caption{Eliminazion meet - popup di conferma}
+    \caption{eliminazion meet - popup di conferma}
+    \label{eliminazion_meet_popup_di_conferma}
 \end{figure}
-\noindent Proseguendo con l'eliminazione, viene chiamata la funzione \texttt{handleDelete}
-\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+\noindent Proseguendo con l'eliminazione, viene chiamata la funzione \texttt{handleDelete} \ref{funzione_handleDelete}:
+\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    caption={funzione handleDelete}, label={funzione_handleDelete}]
 const handleDelete = async () => {
     setOpen(false);
     setOpenDeleteMeetDialog(false);
@@ -50,9 +53,10 @@ const handleDelete = async () => {
     che rimuove l'evento con lo stesso ID di quello eliminato. In questo modo, il cambiamento viene immediatamente visualizzato
     nel calendario senza bisogno di ricaricare la pagina.
 \end{itemize}
-Se il meet viene eliminato con successo, viene mostrato un popup di avviso:
+Se il meet viene eliminato con successo, viene mostrato un popup di avviso \ref{Eliminazion_meet_popup_di_successo}:
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{EliminaMeet/popupSuccessoEliminazione.png}
-    \caption{Eliminazion meet - popup di successo}
+    \caption{eliminazion meet - popup di successo}
+    \label{Eliminazion_meet_popup_di_successo}
 \end{figure}

@@ -1,6 +1,8 @@
 \subsection{Backend}
+Di seguito viene riportato il codice del Controller riguardante l'eliminazione' dei meeting \ref{controller_eliminazione_meeting}: 
 \subsubsection{Controller}
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    caption={controller eliminazione meeting}, label={controller_eliminazione_meeting}]
 @DeleteMapping(value = "/deleteMeet")
     public ResponseEntity<?> deleteMeeting(@RequestBody ObjectNode obj) {
 		try {
@@ -30,7 +32,9 @@
     In caso contrario, viene restituita una risposta con stato HTTP 500 (Internal Server Error).
 \end{itemize}
 \subsubsection{Service}
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Di seguito viene riportato il codice del Service riguardante l'eliminazione' dei meeting \ref{service_eliminazione_meeting}: 
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    caption={service eliminazione meeting}, label={service_eliminazione_meeting}]
 public Mono<Boolean> deleteMeet(ObjectNode obj) {
     try {
         Long idDatabase = obj.get("id").asLong();
@@ -59,9 +63,11 @@ public Mono<Boolean> deleteMeet(ObjectNode obj) {
     viene chiamato il metodo per eliminare il record del meeting a database. 
 \end{itemize}
 \subsubsection{Repository}
-\noindent Metodo per eliminare il meet su Webex: viene effettuata una richiesta DELETE all'API \texttt{https://webexapis.com/v1/meetings/webexId}.
+\noindent Metodo per eliminare il meet su Webex: viene effettuata una richiesta DELETE all'API \texttt{https://webexapis.com/v1/meetings/webexId} 
+\ref{repository_eliminazione_meeting}.
 L'unico parametro necessario è il \texttt{WebexId}, insieme al token per autenticare l'API.
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    caption={chiamata all'API per eliminare un meet su Webex}, label={repository_eliminazione_meeting}]
  public static Mono<Boolean> deleteWebexMeet(WebClient webexAPI, String webexId) {
 	String uri = MeetingAPI.DELETE_WEBEX_MEET + webexId;
 
@@ -78,9 +84,11 @@ L'unico parametro necessario è il \texttt{WebexId}, insieme al token per autent
 	    .onErrorResume(e -> Mono.just(false));
 }
 \end{lstlisting}
-\noindent Metodo per eliminare il record del meet a database: viene recuperata l'istanza del \texttt{Meet} grazie al suo ID
+\noindent Metodo per eliminare il record del meet a database \ref{repository_eliminazione_meeting_database}: 
+viene recuperata l'istanza del \texttt{Meet} grazie al suo ID
 utilizzando il metodo \texttt{findMeetById}. Successivamente viene rimosso dal database.
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left,
+    caption={chiamata al metodo per eliminare un meet a database}, label={repository_eliminazione_meeting_database}]
 public static void deleteDatabaseMeet(MeetJPA repo, Long id) {	
     try {     
         Meet meetDaEliminare = repo.findMeetById(id);      
