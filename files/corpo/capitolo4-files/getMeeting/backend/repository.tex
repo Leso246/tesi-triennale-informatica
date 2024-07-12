@@ -39,7 +39,7 @@ public interface MeetJPA extends JpaRepository<Meet, Long> {
     genera automaticamente l'implementazione di questo metodo basandosi sul suo nome. Verrà utilizzato per il 
     \hyperref[sec:recupero_invitati_backend]{recupero degli invitati}.
 
-    \item \textbf{Righe 4-26}: queste due query personalizzate recuperano tutti i meet associati all'ID dell'utente, sono un esempio di utilizzo
+    \item \textbf{Righe 5-27}: queste due query personalizzate recuperano tutti i meet associati all'ID dell'utente, sono un esempio di utilizzo
     del linguaggio \textbf{JPQL}. 
 \end{itemize}
 È interessante notare l'uso della sintassi \texttt{new dto.MeetDTO} nelle query JPQL: è stato necessario creare una classe \texttt{MeetDTO} 

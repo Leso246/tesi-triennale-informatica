@@ -47,11 +47,11 @@ public ResponseEntity<?> addMeeting(@RequestBody ObjectNode obj) {
     il risultato del Mono viene convertito in un Future e poi ottenuto. Questo metodo blocca l'esecuzione 
     finché il risultato non è disponibile.
   
-    \item \textbf{Riga 7}:
+    \item \textbf{Righe 7-11}:
     se il risultato è \texttt{true}, viene restituita una risposta HTTP con lo stato OK (200), altrimenti
     viene restituita una risposta con lo stato INTERNAL_SERVER_ERROR (500).
   
-    \item \textbf{Riga 12}:
+    \item \textbf{Righ 12-15}:
     se si verifica un'eccezione durante l'esecuzione, l'eccezione viene stampata nello stack trace e viene 
     restituita una risposta con lo stato INTERNAL_SERVER_ERROR (500), contenente il messaggio dell'eccezione.
   \end{itemize}

@@ -28,6 +28,8 @@ sorting=none
 ]{biblatex}
 \addbibresource{files/bibliografia.bib}
 \usepackage{listings} 
+
+
 \lstset{
     showspaces=false, % non mostrare gli spazi come simboli
     showstringspaces=false, % non mostrare gli spazi all'interno di stringhe
@@ -49,7 +51,7 @@ sorting=none
     captionpos=b, % posizione della didascalia
 }
 
-% Configura i contatori per le figure, le tabelle e i listing
+% Configura i contatori per le figure e per le tabelle
 \usepackage{chngcntr}
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
@@ -113,6 +115,12 @@ scientific documents}}
  
 % Inizio del documento
 \begin{document}
+
+% Configura il contatore per i listing
+\makeatletter
+\@removefromreset{lstlisting}{chapter}
+\makeatother
+\counterwithout{lstlisting}{chapter}
 
 % Prima pagina di template
 \subfile{files/frontespizio.tex}

@@ -45,10 +45,10 @@ const handleDelete = async () => {
 };
 \end{lstlisting}
 \begin{itemize}
-    \item \textbf{Righe 6-7}:  viene creato il payload da inviare al backend, 
+    \item \textbf{Righe 5-8}:  viene creato il payload da inviare al backend, 
     contenente i due ID necessari per l'eliminazione del meeting: l'ID del database e l'ID di Webex.
 
-    \item \textbf{Righe 14-15}: se l'eliminazione è andata a buon fine, l'array degli eventi associati a \texttt{Fullcalendar} 
+    \item \textbf{Righe 13-15}: se l'eliminazione è andata a buon fine, l'array degli eventi associati a \texttt{Fullcalendar} 
     viene aggiornato manualmente. Questo avviene creando un nuovo array tramite la funzione \texttt{filter}, 
     che rimuove l'evento con lo stesso ID di quello eliminato. In questo modo, il cambiamento viene immediatamente visualizzato
     nel calendario senza bisogno di ricaricare la pagina.
