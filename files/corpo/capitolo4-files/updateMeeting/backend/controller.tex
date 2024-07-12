@@ -1,5 +1,7 @@
 \subsubsection{Controller}
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Di seguito viene riportato il codice del Controller riguardante la modifica dei meeting \ref{controller_modifica_meeting}: 
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left,
+    caption={controller modifica meeting}, label={controller_modifica_meeting}]
 @PostMapping(value = "/modifyMeet", consumes = "application/json")
 public ResponseEntity<?> modifyMeeting(@RequestBody ObjectNode obj) {
     try {   

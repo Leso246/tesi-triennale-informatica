@@ -5,28 +5,31 @@ La modifica dei meeting è disponibile unicamente per le aziende. È possibile:
     \item Aggiungere ulteriori invitati, inserendo le rispettive email.
 \end{itemize}
 Per poter accedere alla sezione di modifica di un evento, è necessario aprirne i dettagli e cliccare su \textit{"Modifica"}. 
-Il \texttt{Dialog} caricato è lo stesso utilizzato per visualizzare i dettagli, sfruttando ancora una volta la renderizzazione
+Il \texttt{Dialog} \ref{visualizzazione_modifica} caricato è lo stesso utilizzato per visualizzare i dettagli, sfruttando ancora una volta la renderizzazione
 condizionale di React . \cite{reactConditionalRendering}
 \begin{figure}[H]   
     \centering
     \includegraphics[width=\textwidth]{ModificaMeet/visualizzazioneModifica.png}
     \caption{Visualizzazione Modifica}
+    \label{visualizzazione_modifica}
 \end{figure}
 \subsubsection{Modifica di data e ora}
 Per cambiare la data e l'ora di un meeting, sono disponibili due modalità: 
 \begin{itemize}
     % Sezione dedicata alla scelta dal DateTimePicler
-    \item selezionare la data e l'ora dai rispettivi \texttt{DateTimePicker}. Tutte le date passate sono disabilitate e quindi non selezionabili.
+    \item selezionare la data e l'ora dai rispettivi \texttt{DateTimePicker} \ref{modifica_di_data_e_ora}. 
+    Tutte le date passate sono disabilitate e quindi non selezionabili.
     \begin{figure}[H]   
         \centering
         \includegraphics[width=\textwidth]{ModificaMeet/modificaData.png}
         \caption{Modifica di data e ora}
+        \label{modifica_di_data_e_ora}
     \end{figure}
     Ci sono tre condizioni da rispettare, le ultime due imposte da Webex: 
         \begin{itemize}
-            \item la data di fine non può essere antecedente alla data di inizio.
-            \item un meet non può avere una durata inferiore ai 10 minuti.
-            \item un meet non può avere una durata superiore alle 24 ore.
+            \item la data di fine non può essere antecedente alla data di inizio \ref{errore_data_fine}.
+            \item un meet non può avere una durata inferiore ai 10 minuti \ref{errore_10_minuti}.
+            \item un meet non può avere una durata superiore alle 24 ore \ref{errore_24_ore}.
         \end{itemize}
     Nel caso si verifichi una di queste tre condizioni, viene visualizzato un messaggio di errore e il pulsante per salvare viene disabilitato.
     \begin{figure}[H]
@@ -35,48 +38,55 @@ Per cambiare la data e l'ora di un meeting, sono disponibili due modalità:
             \centering
             \includegraphics[width=\textwidth]{ModificaMeet/erroreDataFine.png}
             \caption{errore data fine}
+            \label{errore_data_fine}
         \end{minipage}
         \hspace{0.05\textwidth}
         \begin{minipage}{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{ModificaMeet/errore10min.png}
             \caption{errore 10 minuti}
+            \label{errore_10_minuti}
         \end{minipage}
         \hspace{0.05\textwidth}
         \begin{minipage}{0.45\textwidth}
             \centering
             \includegraphics[width=\textwidth]{ModificaMeet/errore24h.png}
             \caption{errore 24 ore}
+            \label{errore_24_ore}
         \end{minipage}
     \end{figure}
     % Sezione dedicata al drag degli eventi
-    \item Trascinando gli eventi a calendario, rilasciandoli sulla data e l'ora desiderate:
+    \item Trascinando gli eventi a calendario \ref{trascinamento_evento}, rilasciandoli sulla data e l'ora desiderate:
         \begin{itemize}
             \item Nella visualizzazione mensile, è possibile cambiare solo la data e non l'ora.
             \item Nella visualizzazione settimanale, è possibile cambiare la data e l'ora con una precisione di mezz'ora rispetto
             all'orario di inizio del meeting.
             \item Nella visualizzazione giornaliera è possibile cambiare unicamente l'ora, sempre con una precisione di mezz'ora.
         \end{itemize}
+    Se la modifica ha avuto successo, viene visualizzato un popup per avvisare l'utente \ref{successo_nella_modifica}.
         \begin{figure}[H]
             \centering
             \begin{minipage}{0.45\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{ModificaMeet/spostamentoEvento.PNG}
                 \caption{trascinamento evento}
+                \label{trascinamento_evento}
             \end{minipage}
             \hspace{0.05\textwidth}
             \begin{minipage}{0.45\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{ModificaMeet/successoModifica.PNG}
                 \caption{successo nella modifica}
+                \label{successo_nella_modifica}
             \end{minipage}
         \end{figure}
         Nel caso in cui si cerchi di spostare un evento in una data passata, questo viene riportato alla sua posizione originale 
-        e l'utente viene avvisato dell'errore tramite un popup.
+        e l'utente viene avvisato dell'errore tramite un popup \ref{data_passata_selezionata}.
     \begin{figure}[H]   
         \centering
         \includegraphics[width=\textwidth]{ModificaMeet/dataInizioPassata.png}
-        \caption{Data passata selezionata}
+        \caption{data passata selezionata}
+        \label{data_passata_selezionata}
     \end{figure}
     Anche quando viene riscontrato un errore nella modifica, l'utente viene avvisato attraverso un popup e l'evento riportato
     alla posizione originale.
@@ -91,11 +101,13 @@ Spazio & Invio & , & ; & . \
 \end{center}
 viene effettuato un controllo sull'input digitato. Se l'input viene riconosciuto, attraverso una regex, come un'email valida, 
 questa viene visualizzata all'interno di una card per indicare che è stata correttamente riconosciuta e viene contemporaneamente
-aggiunta all'array \textit{inviteesList}, uno \texttt{useState}, che verrà inviato al backend.
+aggiunta all'array \textit{inviteesList}, uno \texttt{useState}, che verrà inviato al backend. Viene riportato un esempio
+dell'interfaccia in figura \ref{aggiunta_degli_invitati}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{ModificaMeet/AggiungiInvitati.png}
-\caption{Aggiunta degli invitati}
+\caption{aggiunta degli invitati}
+\label{aggiunta_degli_invitati}
 \end{figure}
 \noindent Se si desidera modificare un'email, basta cliccarci sopra per ritornare alla visualizzazione del testo. 
 Per eliminarla, è possibile cliccare sulla \textit{X}. 
@@ -105,8 +117,9 @@ clicca sul pulsante \textit{Salva}, l'email digitata non sarà aggiunta come car
 di email da inviare al backend. Per tale motivo, al momento del salvataggio, è necessario controllare l'input 
 rimasto all'interno del \texttt{TextField} e, se questo risulta essere un'email valida, aggiungerla all'array di invitati.
 \subsubsection{Salvataggio delle modifiche}
-Quando si salvano le modifiche, viene chiamata la funzione \texttt{modifyMeet}:
-\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+Quando si salvano le modifiche, viene chiamata la funzione \texttt{modifyMeet} \ref{funzione_modifyMeet}:
+\begin{lstlisting}[language=typescript, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+    label={funzione_modifyMeet}, caption={funzione modifyMeet}]
 const modifyMeet = async () => {
 
     const payload = {

@@ -1,7 +1,8 @@
 \subsubsection{Repository}
 Per modificare l'orario di un meeting, viene effettuata una richiesta PATCH 
-all'API \texttt{https://webexapis.com/v1/meetings/webexId}.
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+all'API \texttt{https://webexapis.com/v1/meetings/webexId} \ref{modifica_orario_webex}.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+	caption={chiamata all'API per modificare l'orario su Webex}, label={modifica_orario_webex}]
 public static Mono<Boolean> modifyWebexMeetDate(WebClient webexAPI, JsonNode evento) {
 	try {
 		ObjectNode requestBody = UtiltyMeet.createModifyWebexMeetDateBody(evento);
@@ -27,8 +28,8 @@ public static Mono<Boolean> modifyWebexMeetDate(WebClient webexAPI, JsonNode eve
 }
 \end{lstlisting}
 \begin{itemize}
-    \item \textbf{Riga 3}: metodo di utilità per costruire il body della richiesta
-        \begin{lstlisting}[language=json,firstnumber=1]
+    \item \textbf{Riga 3}: metodo di utilità per costruire il body della richiesta \ref{modifica_orario_webex_body}.
+        \begin{lstlisting}[language=json, caption={body per modificare l'orario su Webex}, label={modifica_orario_webex_body}]
 {
     "start": "2024-07-22T10:00:00",
     "end": "2024-07-22T11:00:00",
@@ -39,8 +40,9 @@ public static Mono<Boolean> modifyWebexMeetDate(WebClient webexAPI, JsonNode eve
     \item \textbf{Righe 8-17}: chiamata all'API.
 \end{itemize}
 Per aggiungere gli invitati a un meeting, viene effettuata una richiesta POST 
-all'API \texttt{https://webexapis.com/v1/meetingInvitees/bulkInsert}.
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+all'API \texttt{https://webexapis.com/v1/meetingInvitees/bulkInsert} \ref{modifica_invitati_webex}.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+	caption={chiamata all'API per aggiungere invitati su Webex}, label={modifica_invitati_webex}]
 public static Mono<Boolean> modifyWebexMeetInvitees(WebClient webexAPI, JsonNode evento, List<String> invitatiList) {
 	try {		
 		if (invitatiList.size() != 0) {		
@@ -48,7 +50,8 @@ public static Mono<Boolean> modifyWebexMeetInvitees(WebClient webexAPI, JsonNode
 
 			return webexAPI.post().uri(MeetingAPI.MODIFY_WEBEX_MEET_INVITEES)
 				.header(HttpHeaders.AUTHORIZATION, "Bearer " + MeetingAPI.TOKEN)
-				.contentType(MediaType.APPLICATION_JSON).bodyValue(requestBody).retrieve().toBodilessEntity()
+				.contentType(MediaType.APPLICATION_JSON)
+					.bodyValue(requestBody).retrieve().toBodilessEntity()
 				.thenReturn(true).onErrorResume(e -> {
 					System.err.println(
 						"Errore durante la chiamata all'API di Webex per l'aggiunta degli invitati a un meet: "
@@ -69,11 +72,11 @@ public static Mono<Boolean> modifyWebexMeetInvitees(WebClient webexAPI, JsonNode
     \item \textbf{Riga 3}: la richiesta viene eseguita solo se ci sono invitati da aggiungere. In caso contrario, viene restituito 
     \texttt{true} e il controllo torna al service.
 
-    \item \textbf{Riga 4}: metodo di utilità per costruire il body della richiesta. 
+    \item \textbf{Riga 4}: metodo di utilità \ref{modifica_invitati_webex_body} per costruire il body della richiesta. 
     \texttt{hostEmail} rappresenta l'email dell'account che crea tutti i meeting, 
     mentre \texttt{items} è un array di JSON contenente le email degli invitati. È possibile specificare ulteriori attributi
      per ogni invitato, ma in questo caso non è stato necessario.
-    \begin{lstlisting}[language=json,firstnumber=1]
+    \begin{lstlisting}[language=json, caption={body per aggiungere invitati su Webex}, label={modifica_invitati_webex_body}]
 {
     "meetingId":"abcde123456",
     "hostEmail":"admin@tiscali.it",
@@ -88,11 +91,12 @@ public static Mono<Boolean> modifyWebexMeetInvitees(WebClient webexAPI, JsonNode
 }
     \end{lstlisting}
 
-    \item \textbf{Righe 6-15}: viene chiamata l'API.
+    \item \textbf{Righe 6-9}: viene chiamata l'API.
 \end{itemize}
-La modifica del meeting nel database prevede l'aggiornamento delle date di inizio e fine, 
-poiché gli invitati non vengono salvati nel database ma vengono recuperati direttamente da Webex ogni volta.
-\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left]
+La modifica del meeting a database \ref{modifica_meet_a_database} prevede l'aggiornamento delle date di inizio e fine. 
+Gli invitati non vengono salvati nel database ma vengono recuperati direttamente da Webex.
+\begin{lstlisting}[language=java, frame=lines, basicstyle=\ttfamily\scriptsize, numbers=left, 
+	caption={modifica meet a database}, label={modifica_meet_a_database}]
     public static void modifyDatabaseMeet(MeetJPA repo, JsonNode evento) {
 		try {
 			Meet meet = repo.findMeetById(evento.get("id").asLong());
